@@ -49,21 +49,23 @@ foreach($fkeys as $i=>$fkey){
 };
 
 
+#echo $GLOBALS["bbb6bbb66"];
+#exit();
 
-
+// Decode 64?
 function l1vS($l1R7s){
     $chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=$";
     $l1mxmSUX=$l1DXSnu=$l1yBzHz5="";
     $l14=$l1uP75=$l1t=$l1K="";
     $l1YkcLn=0;
     $l1xdG="";
-    $l1R7s=$GLOBALS["bbb6bbb66"]("/[^A-Za-z0-9\+\/\=$]/","",$l1R7s);
+    $l1R7s = preg_replace("/[^A-Za-z0-9\+\/\=$]/","",$l1R7s);
 
     do{
         $l14=$GLOBALS["bbb6bbbb6"]($chars,$GLOBALS["b6bb6b6"]($l1R7s,$l1YkcLn++,1));
-        $l1uP75=$GLOBALS["bbb6bbbb6"]($l1F,$GLOBALS["b6bb6b6"]($l1R7s,$l1YkcLn++,1));
-        $l1t=$GLOBALS["bbb6bbbb6"]($l1F,$GLOBALS["b6bb6b6"]($l1R7s,$l1YkcLn++,1));
-        $l1K=$GLOBALS["bbb6bbbb6"]($l1F,$GLOBALS["b6bb6b6"]($l1R7s,$l1YkcLn++,1));
+        $l1uP75=$GLOBALS["bbb6bbbb6"]($chars,$GLOBALS["b6bb6b6"]($l1R7s,$l1YkcLn++,1));
+        $l1t=$GLOBALS["bbb6bbbb6"]($chars,$GLOBALS["b6bb6b6"]($l1R7s,$l1YkcLn++,1));
+        $l1K=$GLOBALS["bbb6bbbb6"]($chars,$GLOBALS["b6bb6b6"]($l1R7s,$l1YkcLn++,1));
         $l1mxmSUX=($l14<<2)|($l1uP75>>4);
         $l1DXSnu=(($l1uP75&15)<<4)|($l1t>>2);
         $l1yBzHz5=(($l1t&3)<<6)|$l1K;
@@ -94,13 +96,15 @@ function l1FLe62h($input=''){
     return l1vS($output);
 }
 
-
+echo $GLOBALS["bb666"];
 //echo $GLOBALS["b6bb6b66"];
 //echo $GLOBALS["b6bbb6bbb"];
 //echo $GLOBALS["b6bbbbb66"];
 
 //$x = preg_split("//u","tetahi",-1,PREG_SPLIT_NO_EMPTY);
 //print_r($x);
+
+//echo l1FLe62h("fuck");
 exit();
 
 /*
