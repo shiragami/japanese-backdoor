@@ -55,10 +55,10 @@ foreach($fkeys as $i=>$fkey){
 // Decode 64?
 function l1vS($l1R7s){
     $chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=$";
-    $l1mxmSUX=$l1DXSnu=$l1yBzHz5="";
-    $l14=$l1uP75=$l1t=$l1K="";
-    $l1YkcLn=0;
-    $l1xdG="";
+    $l1mxmSUX = $l1DXSnu = $l1yBzHz5 = "";
+    $l14 = $l1uP75 = $l1t = $l1K = "";
+    $l1YkcLn = 0;
+    $l1xdG = "";
     $l1R7s = preg_replace("/[^A-Za-z0-9\+\/\=$]/","",$l1R7s);
 
     do{
@@ -96,7 +96,7 @@ function l1FLe62h($input=''){
     return l1vS($output);
 }
 
-echo unserialize;
+//echo unserialize;
 //echo preg_split;
 //echo chr;
 //echo ord;
@@ -105,7 +105,6 @@ echo unserialize;
 //print_r($x);
 
 //echo l1FLe62h("fuck");
-exit();
 
 /*
 function l11b68x($l1W){
@@ -119,12 +118,15 @@ $bbbb66b6 = file_get_contents(__FILE__);
 // <Insert long> $b6b66b = ..
 // Solve function l1FLe62h
 
-echo $bbbb66b6;
-exit();
+
+// Save in seperate file
+include 'long.php';
 
 foreach($b6b66b as $b6b666b=>$bbb66bb6){
     $b6b66b[$b6b666b] = l1FLe62h($bbb66bb6);
 };
+
+exit();
 
 @extract($b6b66b);
 
