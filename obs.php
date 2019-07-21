@@ -52,7 +52,7 @@ foreach($fkeys as $i=>$fkey){
 
 
 function l1vS($l1R7s){
-    $l1F="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=$";
+    $chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=$";
     $l1mxmSUX=$l1DXSnu=$l1yBzHz5="";
     $l14=$l1uP75=$l1t=$l1K="";
     $l1YkcLn=0;
@@ -60,7 +60,7 @@ function l1vS($l1R7s){
     $l1R7s=$GLOBALS["bbb6bbb66"]("/[^A-Za-z0-9\+\/\=$]/","",$l1R7s);
 
     do{
-        $l14=$GLOBALS["bbb6bbbb6"]($l1F,$GLOBALS["b6bb6b6"]($l1R7s,$l1YkcLn++,1));
+        $l14=$GLOBALS["bbb6bbbb6"]($chars,$GLOBALS["b6bb6b6"]($l1R7s,$l1YkcLn++,1));
         $l1uP75=$GLOBALS["bbb6bbbb6"]($l1F,$GLOBALS["b6bb6b6"]($l1R7s,$l1YkcLn++,1));
         $l1t=$GLOBALS["bbb6bbbb6"]($l1F,$GLOBALS["b6bb6b6"]($l1R7s,$l1YkcLn++,1));
         $l1K=$GLOBALS["bbb6bbbb6"]($l1F,$GLOBALS["b6bb6b6"]($l1R7s,$l1YkcLn++,1));
@@ -83,14 +83,26 @@ function l1vS($l1R7s){
     return$l1xdG;
 }
 
-function l1FLe62h($l1nhj7X=''){
-    $l1Aiz0A7='';
-    $l1ve=$GLOBALS["b6bb6b66"]("//u",$l1nhj7X,-1,PREG_SPLIT_NO_EMPTY);
-    foreach($l1ve as$l1w6i){
-        $l1Aiz0A7.=$GLOBALS["b6bbb6bbb"]($GLOBALS["b6bbbbb66"]($l1w6i)+1);
+function l1FLe62h($input=''){
+    $output = '';
+    // Split string into chars
+    $chars = preg_split("//u",$input,-1,PREG_SPLIT_NO_EMPTY);
+    foreach($chars as $c){
+        // Caesar shift
+        $output .= chr(ord($c)+1);
     }
-    return l1vS($l1Aiz0A7);
+    return l1vS($output);
 }
+
+
+//echo $GLOBALS["b6bb6b66"];
+//echo $GLOBALS["b6bbb6bbb"];
+//echo $GLOBALS["b6bbbbb66"];
+
+//$x = preg_split("//u","tetahi",-1,PREG_SPLIT_NO_EMPTY);
+//print_r($x);
+exit();
+
 /*
 function l11b68x($l1W){
     return l1FLe62h($l1W);
@@ -101,7 +113,7 @@ function l11b68x($l1W){
 $bbbb66b6 = file_get_contents(__FILE__);
 
 // <Insert long> $b6b66b = ..
-// Solve function l11b68x
+// Solve function l1FLe62h
 
 echo $bbbb66b6;
 exit();
