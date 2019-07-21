@@ -122,13 +122,15 @@ $bbbb66b6 = file_get_contents(__FILE__);
 // Save in seperate file
 include 'long.php';
 
-foreach($b6b66b as $b6b666b=>$bbb66bb6){
-    $b6b66b[$b6b666b] = l1FLe62h($bbb66bb6);
+// Decode phrase
+foreach($b6b66b as $i=>$cipher){
+    $b6b66b[$i] = l1FLe62h($cipher);
+    //echo  $b6b66b[$i]. "\n";
 };
 
-exit();
-
 @extract($b6b66b);
+
+exit();
 
 preg_match(l1FLe62h("K/@mJB3pOxjmNx8y"),$bbbb66b6,$_SESSION["oO0Oo0OO0"]);
 @set_time_limit(7200);
