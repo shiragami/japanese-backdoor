@@ -49,7 +49,6 @@ foreach($fkeys as $i=>$fkey){
 };
 
 
-exit();
 
 
 function l1vS($l1R7s){
@@ -92,21 +91,28 @@ function l1FLe62h($l1nhj7X=''){
     }
     return l1vS($l1Aiz0A7);
 }
-
+/*
 function l11b68x($l1W){
     return l1FLe62h($l1W);
 }
+*/
 
-$bbbb66b6=$GLOBALS["b6bbbb6b"](__FILE__);
-// <Insert long>
+//$bbbb66b6 = $GLOBALS["b6bbbb6b"](__FILE__);
+$bbbb66b6 = file_get_contents(__FILE__);
 
-foreach($b6b66b as$b6b666b=>$bbb66bb6){
-    $b6b66b[$b6b666b]=l11b68x($bbb66bb6);
+// <Insert long> $b6b66b = ..
+// Solve function l11b68x
+
+echo $bbbb66b6;
+exit();
+
+foreach($b6b66b as $b6b666b=>$bbb66bb6){
+    $b6b66b[$b6b666b] = l1FLe62h($bbb66bb6);
 };
 
 @extract($b6b66b);
 
-$GLOBALS["bbb66666b"](l11b68x("K/@mJB3pOxjmNx8y"),$bbbb66b6,$_SESSION["oO0Oo0OO0"]);
+$GLOBALS["bbb66666b"](l1FLe62h("K/@mJB3pOxjmNx8y"),$bbbb66b6,$_SESSION["oO0Oo0OO0"]);
 @$GLOBALS["b6b6bbb"](7200);
 @$GLOBALS["bb66b6bb6"](1);
 @$GLOBALS["b6b66b6b"]();
