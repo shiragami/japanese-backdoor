@@ -104,7 +104,6 @@ function l1FLe62h($input=''){
 //$x = preg_split("//u","tetahi",-1,PREG_SPLIT_NO_EMPTY);
 //print_r($x);
 
-//echo l1FLe62h("fuck");
 
 /*
 function l11b68x($l1W){
@@ -118,6 +117,7 @@ $bbbb66b6 = file_get_contents(__FILE__);
 
 
 // Save in seperate file
+/*
 include 'long.php';
 // $b6b66b = ..
 
@@ -127,10 +127,11 @@ foreach($b6b66b as $i=>$cipher){
     //echo  $b6b66b[$i]. "\n";
 };
 
+
+exit();
 @extract($b6b66b);
+*/
 
-
-//echo l1FLe62h("K/@mJB3pOxjmNx8y");
 
 //preg_match(l1FLe62h("K/@mJB3pOxjmNx8y"),$bbbb66b6,$_SESSION["oO0Oo0OO0"]);
 preg_match("/@'(.*?)';/s",$bbbb66b6,$_SESSION["oO0Oo0OO0"]);
