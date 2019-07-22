@@ -53,6 +53,7 @@ foreach($fkeys as $i=>$fkey){
 #exit();
 
 // Decode 64
+/*
 function decode_msg($l1R7s){
     $chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=$";
     $l1mxmSUX = $l1DXSnu = $l1yBzHz5 = "";
@@ -84,7 +85,9 @@ function decode_msg($l1R7s){
 
     return$l1xdG;
 }
+*/
 
+/*
 function l1FLe62h($input=''){
     $output = '';
     // Split string into chars
@@ -95,6 +98,7 @@ function l1FLe62h($input=''){
     }
     return decode_msg($output);
 }
+*/
 
 //echo unserialize;
 //echo preg_split;
