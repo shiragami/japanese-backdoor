@@ -194,16 +194,16 @@ function l1O2($l14kn,$l1U4n=0,$l1kqFWwO=1,$l1ss2z=null,$l1ms=array()){
             $l1Hi=$l1er18S4;
         }
     }else{
-        $l1hx8Jh='';
+        $func = ''; //l1hx8Jh
         if(function_exists("fsockopen")){
-            $l1hx8Jh = "fsockopen";
-        }elseif(function_exists(pfsockopen)){
-            $l1hx8Jh = pfsockopen;
+            $func = "fsockopen";
+        }elseif(function_exists("pfsockopen")){
+            $func = "pfsockopen";
         }
 
-        if($l1hx8Jh!=''){
+        if($func != ''){
             $l16LhCLJ=parse_url($l14kn);
-            $l1vY=$l1hx8Jh($l16LhCLJ["host"],isset($l16LhCLJ["port"])?$l16LhCLJ["port"]:80,$l19rmur2,$l1wLOnRg,30);
+            $l1vY = $func($l16LhCLJ["host"],isset($l16LhCLJ["port"])?$l16LhCLJ["port"]:80,$l19rmur2,$l1wLOnRg,30);
             if($l1vY){
                 $l1Hi=isset($l16LhCLJ["path"])?$l16LhCLJ["path"]:'';
                 $l1Hi.=isset($l16LhCLJ["query"])?'?'.$l16LhCLJ["query"]:'';
